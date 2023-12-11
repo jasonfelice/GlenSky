@@ -3,7 +3,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      Shivam (Jake) Weather app
+      <div className="rectangle">
+        <span className='date'>Thu, September 28</span>
+      </div>
     </div>
   );
 }

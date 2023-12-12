@@ -7,7 +7,7 @@
 }
 
 :root {
-  --priBlue: #71ccff;
+  --rectPri: #71ccff;
 }
 
 .App {
@@ -22,7 +22,7 @@
   height: 30vw;
   border-radius: 25px;
   padding: 10px 20px;
-  background: var(--priBlue);
+  background: var(--rectPri);
   color: #fff;
   box-shadow: 0 10px 20px #00000075;
 }

@@ -1,10 +1,11 @@
 import './App.css';
+import getCurrentDate from './utils/getCurrentDate';
 
 function App() {
   return (
     <div className="App">
       <div className="rectangle">
-        <span className='date'>Thu, September 28</span>
+        <span className='date'>{getCurrentDate()}</span>
       </div>
     </div>
   );

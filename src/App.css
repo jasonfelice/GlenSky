@@ -21,7 +21,7 @@
   width: 55vw;
   height: 30vw;
   border-radius: 25px;
-  padding: 10px 20px;
+  padding: 20px 10px;
   background: var(--rectPri);
   color: #fff;
   box-shadow: 0 10px 20px #00000075;
@@ -29,7 +29,7 @@
 
 .rectangle .date {
   position: absolute;
-  top: 10px;
+  top: 20px;
   right: 20px;
   font-size: 20px;
 }

@@ -1,6 +1,8 @@
-import './App.css';
-import Splash from './components/splash/Splash';
+import { Route, Routes } from 'react-router-dom';
 import getCurrentDate from './utils/getCurrentDate';
+import './App.css';
+import Weather from './components/weather/Weather';
+import Splash from './components/splash/Splash';
 
 function App() {
   return (
@@ -8,7 +10,10 @@ function App() {
       <div className="rectangle">
         <span className='date'>{getCurrentDate()}</span>
         <main>
-          <Splash/>
+          <Routes>
+            <Route path='/' element={<Splash />} />
+            <Route path='/weather/:city' element={<Weather />} />
+          </Routes>
         </main>
       </div>
     </div>

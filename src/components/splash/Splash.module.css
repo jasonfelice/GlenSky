@@ -1,0 +1,9 @@
+.splash {
+  display: flex;
+}
+
+.splashVector {
+  height: 200px;
+  width: 200px;
+  filter: invert(1) brightness(2);
+}

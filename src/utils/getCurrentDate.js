@@ -1,4 +1,4 @@
-const getCurrentDate = () => {
+const getCurrentDate = (date) => {
   const months = {
     1: 'January',
     2: 'February',
@@ -13,8 +13,7 @@ const getCurrentDate = () => {
     11: 'November',
     12: 'December',
   };
-
-  const date = new Date();
+  
   const day = date.toString().slice(0, 3);
 
   return `${day}, ${months[date.getMonth()]} ${date.getDate()}`;

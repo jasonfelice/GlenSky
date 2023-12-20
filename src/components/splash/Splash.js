@@ -21,7 +21,7 @@ const Splash = ({ date }) => {
   return (
     <div className={Styles.splash}>
       <div className={Styles.vectorWrapper}>
-        <img className={Styles.splashVector} src={timeObject[getTimeOfDay(date)]} alt={getTimeOfDay(date)} />
+        <img draggable={false} className={Styles.splashVector} src={timeObject[getTimeOfDay(date)]} alt={getTimeOfDay(date)} />
       </div>
       <div className={Styles.citySelect}>
         <form onClick={() => setInputFocus(true)} className={Styles.inputWrapper}>

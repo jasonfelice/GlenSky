@@ -17,6 +17,7 @@
   transform: translate(0, 300px);
   opacity: 0;
   animation: riseUp 1s forwards;
+  user-select: none;
 }
 
 @keyframes riseUp {
@@ -46,6 +47,7 @@
   border-right: 1px solid black;
   width: 100%;
   white-space: nowrap;
+  user-select: none;
   overflow: hidden;
   animation:
     typing 2s ease-out infinite,

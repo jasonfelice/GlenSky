@@ -26,6 +26,12 @@
   }
 }
 
+.citySelect {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .inputWrapper {
   background: #fff;
   text-align: center;
@@ -62,4 +68,18 @@
 /* Typing animation */
 @keyframes typing {
   from { width: 0; }
+}
+
+.target {
+  display: block;
+  background: url(../../assets/vectors/target.svg) no-repeat center center/cover;
+  width: 25px;
+  height: 25px;
+  filter: invert(1);
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+
+.target:active {
+  filter: invert(0);
 }

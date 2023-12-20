@@ -28,6 +28,7 @@ const Splash = ({ date }) => {
           { !inputFocus && (<p>Las Vegas, Nevada, USA</p>)}
           { inputFocus && (<input autoFocus onChange={(e) => setInput(e.target.value)} onBlur={() => setInputFocus(!!input)} type="text" value={input} />)}
         </form>
+        <i className={Styles.target} />
       </div>
     </div>
   )

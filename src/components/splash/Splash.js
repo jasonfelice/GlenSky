@@ -16,7 +16,12 @@ const Splash = ({ date }) => {
       <div className={Styles.vectorWrapper}>
         <img className={Styles.splashVector} src={timeObject[getTimeOfDay(date)]} alt={getTimeOfDay(date)} />
       </div>
-      <div className={Styles.citySelect}></div>
+      <div className={Styles.citySelect}>
+        <div className={Styles.inputWrapper}>
+          <p>Las Vegas, Nevada, USA</p>
+          <input type="text" />
+        </div>
+      </div>
     </div>
   )
 };

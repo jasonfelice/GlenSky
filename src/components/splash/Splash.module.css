@@ -1,5 +1,8 @@
 .splash {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
 }
 
 .vectorWrapper {
@@ -8,7 +11,44 @@
 }
 
 .splashVector {
-  height: 200px;
-  width: 200px;
+  height: 230px;
+  width: 230px;
   filter: invert(1) brightness(2);
+}
+
+.inputWrapper {
+  background: #fff;
+  text-align: center;
+  padding: 15px 150px;
+  border-radius: 10px;
+  color: var(--greyText);
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.inputWrapper p {
+  border-right: 1px solid black;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  animation:
+    typing 2s ease-out infinite,
+    cursor 0.4s step-end infinite alternate;
+}
+
+.inputWrapper input {
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+}
+
+/* Blinking cursor  */
+@keyframes cursor {
+  50% { border-color: transparent;}
+}
+
+/* Typing animation */
+@keyframes typing {
+  from { width: 0; }
 }

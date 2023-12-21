@@ -4,6 +4,7 @@ import morning from '../../assets/vectors/morning.svg';
 import afternoon from '../../assets/vectors/afternoon.svg';
 import night from '../../assets/vectors/night.svg';
 import getTimeOfDay from '../../utils/getTimeOfDay';
+import Cities from './Cities';
 
 const Splash = ({ date }) => {
 
@@ -27,6 +28,7 @@ const Splash = ({ date }) => {
         <form onClick={() => setInputFocus(true)} className={Styles.inputWrapper}>
           { !inputFocus && (<p>Las Vegas, Nevada, USA</p>)}
           { inputFocus && (<input autoFocus placeholder='Las Vegas, Nevada, USA' onChange={(e) => setInput(e.target.value)} onBlur={() => setInputFocus(!!input)} type="text" value={input} />)}
+          <Cities />
         </form>
         <i className={Styles.target} />
       </div>

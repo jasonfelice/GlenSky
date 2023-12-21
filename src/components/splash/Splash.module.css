@@ -87,3 +87,32 @@
 .target:active {
   filter: invert(0);
 }
+
+/* Icons in input form */
+
+.icon {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  filter: invert(0.4);
+}
+
+.find {
+  background: url(../../assets/icons/find.svg) no-repeat center center/cover;
+  right: 11px;
+  top: 11px;
+}
+
+.spin,
+.enter {
+  left: 11px;
+  top: 11px;
+}
+
+.spin {
+  background: url(../../assets/icons/spin.svg) no-repeat center center/cover;
+}
+
+.enter {
+  background: url(../../assets/icons/return.svg) no-repeat center center/cover;
+}

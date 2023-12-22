@@ -11,6 +11,7 @@ const Splash = ({ date }) => {
   // Check focus state of input elements 
   const [ inputFocus, setInputFocus] = useState(false);
   const [input, setInput] = useState('');
+  const [citiesList, setCitiesList] = useState({ loading: false, cities: []});
 
   // Object for vector images 
   const timeObject = {
@@ -26,11 +27,11 @@ const Splash = ({ date }) => {
       </div>
       <div className={Styles.citySelect}>
         <form onClick={() => setInputFocus(true)} className={Styles.inputWrapper}>
-          <i className={`${Styles.icon} ${Styles.enter}`} />
+          { citiesList.loading ? (<i className={`${Styles.icon} ${Styles.spin}`} />) : (<i className={`${Styles.icon} ${Styles.enter}`} />)}
           { !inputFocus && (<p>Las Vegas, Nevada, USA</p>)}
           { inputFocus && (<input autoFocus placeholder='Las Vegas, Nevada, USA' onChange={(e) => setInput(e.target.value)} onBlur={() => setInputFocus(!!input)} type="text" value={input} />)}
           <i className={`${Styles.icon} ${Styles.find}`} />
-          <Cities />
+         { (!citiesList.loading && !!citiesList.cities.length) && <Cities />}
         </form>
         <i className={Styles.target} />
       </div>

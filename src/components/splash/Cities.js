@@ -1,16 +1,13 @@
 import Styles from './Cities.module.css';
 
-const Cities = () => {
+const Cities = ({ cities }) => {
   return (
     <ul className={Styles.cities}>
-        <li>Las Vegas, Nevada, USA</li>
-        <li>Las Vegas, Nevada, USA</li>
-        <li>Las Vegas, Nevada, USA</li>
-        <li>Las Vegas, Nevada, USA</li>
-        <li>Las Vegas, Nevada, USA</li>
-        <li>Las Vegas, Nevada, USA</li>
-        <li>Las Vegas, Nevada, USA</li>
-        <li>Las Vegas, Nevada, USA</li>
+        {
+          cities.map((city) => (
+            <li>{city.name}</li>
+          ))
+        }
     </ul>
   );
 };

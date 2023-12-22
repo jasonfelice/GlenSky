@@ -31,7 +31,7 @@ const Splash = ({ date }) => {
           { !inputFocus && (<p>Las Vegas, Nevada, USA</p>)}
           { inputFocus && (<input autoFocus placeholder='Las Vegas, Nevada, USA' onChange={(e) => setInput(e.target.value)} onBlur={() => setInputFocus(!!input)} type="text" value={input} />)}
           <i className={`${Styles.icon} ${Styles.find}`} />
-         { (!citiesList.loading && !!citiesList.cities.length) && <Cities />}
+         { (!citiesList.loading && !!citiesList.cities.length) && <Cities cities={citiesList.cities} />}
         </form>
         <i className={Styles.target} />
       </div>

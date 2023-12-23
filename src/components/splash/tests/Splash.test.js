@@ -9,4 +9,8 @@ describe('Splash', () => {
     const vector = screen.queryByAltText(getTimeOfDay(date));
     expect(vector).toBeVisible();
   })
+  test('if the form is visible', () => {
+    const form = screen.queryByRole('form');
+    expect(form).toBeVisible();
+  })
 });

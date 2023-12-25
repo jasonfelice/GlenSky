@@ -26,7 +26,7 @@ const Splash = ({ date }) => {
         <img draggable={false} className={Styles.splashVector} src={timeObject[getTimeOfDay(date)]} alt={getTimeOfDay(date)} />
       </div>
       <div className={Styles.citySelect}>
-        <form  onClick={() => setInputFocus(true)} className={Styles.inputWrapper}>
+        <form aria-label="form"  onClick={() => setInputFocus(true)} className={Styles.inputWrapper}>
           { citiesList.loading ? (<i className={`${Styles.icon} ${Styles.spin}`} />) : (<i className={`${Styles.icon} ${Styles.enter}`} />)}
           { !inputFocus && (<p>Las Vegas, Nevada, USA</p>)}
           { inputFocus && (<input autoFocus placeholder='Las Vegas, Nevada, USA' onChange={(e) => setInput(e.target.value)} onBlur={() => setInputFocus(!!input)} type="text" value={input} />)}

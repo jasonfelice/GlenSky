@@ -1,29 +1,41 @@
 import { useParams } from 'react-router-dom';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Doughnut } from 'react-chartjs-2';
-ChartJS.register(ArcElement, Tooltip, Legend);
-
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 const Weather = () => {
+  const options = {
+    responsive: true,
+  };
   const data = {
-    labels: [
-      'Red',
-      'Blue',
-      'Yellow'
-    ],
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
     datasets: [{
       label: 'My First Dataset',
-      data: [300, 50, 100],
-      backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)'
-      ],
-      hoverOffset: 4
-    }]
+      data: [65, 59, 80, 81, 56, 55, 40],
+      fill: true,
+      borderColor: 'rgb(75, 192, 192)',
+      tension: 0.1
+    }],
   };
   const { city } = useParams(); 
   return (
-    <div className="weather">{city}<Doughnut style={{width: '50px'}} data={data} /></div>
+    <div className="weather">{city}<Line options={options} data={data} /></div>
     
   );
 };

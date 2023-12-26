@@ -21,14 +21,27 @@ ChartJS.register(
 const TestChart = () => {
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        position: 'top'
+      },
+      y: {
+        display: false,
+      }
+    },
+    plugins: {
+      legend: {
+        display: false,
+      },
+    }
   };
   const data = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
     datasets: [{
-      label: 'My First Dataset',
       data: [65, 59, 80, 81, 56, 55, 40],
       fill: true,
-      borderColor: 'rgb(75, 192, 192)',
+      borderColor: '#ff9f40',
       tension: 0.1
     }],
   };

@@ -1,7 +1,42 @@
+/* Weather data wrapper  */
 .weather {
   width: 65%;
   height: 21vw;
   border: 1px solid #fff;
   margin: 0 auto;
   margin-top: 68px;
+  color: var(--greyText);
+}
+
+/* headline icon style  */
+.weatherIcon {
+  background: url(../../assets/Rain.png) no-repeat center center/cover;
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+
+.weatherInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.headTemprature {
+  display: flex;
+  align-items: center;
+}
+
+.averageTemp {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.description {
+  font-size: 0.85rem;
+}
+
+/* Top right headline description */
+.headinfoRight {
+  font-size: 0.8rem;
+  text-align: right;
 }

@@ -1,4 +1,5 @@
 import Styles from './Weather.module.css';
+import TestChart from './TestChart';
 
 const Weather = () => {
 
@@ -33,6 +34,9 @@ const Weather = () => {
         <div>Humidity</div>
         <span>|</span>
         <div>Wind</div>
+      </div>
+      <div className={Styles.chartWrapper}>
+        <TestChart />
       </div>
     </div>
   );

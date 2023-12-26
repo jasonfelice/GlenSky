@@ -6,6 +6,9 @@
   margin: 0 auto;
   margin-top: 68px;
   color: var(--greyText);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 /* headline icon style  */
@@ -45,4 +48,12 @@
 .headinfoRight {
   font-size: 0.8rem;
   text-align: right;
+}
+
+/* Chart selector  */
+.chartTabs {
+  display: flex;
+  gap: 10px;
+  font-size: 1.1rem;
+  opacity: 0.8;
 }

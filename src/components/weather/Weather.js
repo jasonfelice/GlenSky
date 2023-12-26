@@ -25,6 +25,15 @@ const Weather = () => {
           <p>Wind: 5mph</p>
         </div>
       </div>
+      <div className={Styles.chartTabs}>
+        <div>Temperature</div>
+        <span>|</span>
+        <div>Precipitation</div>
+        <span>|</span>
+        <div>Humidity</div>
+        <span>|</span>
+        <div>Wind</div>
+      </div>
     </div>
   );
 };

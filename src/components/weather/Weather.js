@@ -2,6 +2,9 @@ import Styles from './Weather.module.css';
 
 const Weather = () => {
 
+  const temp = 'F';
+  const selected = { color: '#fff',  };
+
   return (
     <div className={Styles.weather}>
       <div className={Styles.weatherInfo}>
@@ -9,7 +12,7 @@ const Weather = () => {
           <div className={Styles.headTemprature}>
             <i className={Styles.weatherIcon} />
             <span className={Styles.averageTemp}>77°</span>
-            <div className={Styles.tempSelector}><span>F</span>{'|'}<span>C</span> </div>
+            <div className={Styles.tempSelector}><span style={temp === 'F' ? selected : {}}>F</span>{'|'}<span style={temp === "C" ? selected : {}}>C</span> </div>
           </div>
           <div className={Styles.description}>
             <p>Saturday</p>

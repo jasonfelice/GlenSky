@@ -24,6 +24,7 @@
 .headTemprature {
   display: flex;
   align-items: center;
+  gap: 5px;
 }
 
 .averageTemp {
@@ -33,6 +34,11 @@
 
 .description {
   font-size: 0.85rem;
+}
+
+.tempSelector {
+  font-size: 1.2rem;
+  align-self: start;
 }
 
 /* Top right headline description */

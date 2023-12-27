@@ -45,6 +45,26 @@ const Weather = () => {
           <img src={rain} width={75} height={75} alt="Rain" className={Styles.dayIcon} />
           <p><span style={{ color: '#fff' }}>77°</span><span>69°</span></p>
         </div>
+        <div className={Styles.daySelect}>
+          <span>SUN</span>
+          <img src={rain} width={75} height={75} alt="Rain" className={Styles.dayIcon} />
+          <p><span style={{ color: '#fff' }}>77°</span><span>69°</span></p>
+        </div>
+        <div className={Styles.daySelect}>
+          <span>MON</span>
+          <img src={rain} width={75} height={75} alt="Rain" className={Styles.dayIcon} />
+          <p><span style={{ color: '#fff' }}>77°</span><span>69°</span></p>
+        </div>
+        <div className={Styles.daySelect}>
+          <span>TUE</span>
+          <img src={rain} width={75} height={75} alt="Rain" className={Styles.dayIcon} />
+          <p><span style={{ color: '#fff' }}>77°</span><span>69°</span></p>
+        </div>
+        <div className={Styles.daySelect}>
+          <span>WED</span>
+          <img src={rain} width={75} height={75} alt="Rain" className={Styles.dayIcon} />
+          <p><span style={{ color: '#fff' }}>77°</span><span>69°</span></p>
+        </div>
       </div>
     </div>
   );

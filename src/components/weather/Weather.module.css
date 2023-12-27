@@ -1,7 +1,6 @@
 /* Weather data wrapper  */
 .weather {
   width: 65%;
-  height: 21vw;
   border: 1px solid #fff;
   margin: 0 auto;
   margin-top: 68px;
@@ -61,4 +60,27 @@
 .chartWrapper {
   height: 150px;
   background-color: #fff;
+}
+
+/* Days Selector */
+.daysWrapper {
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.daySelect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.daySelect span {
+  transform: translateY(12px);
+}
+
+.daySelect p {
+  transform: translateY(-12px);
 }

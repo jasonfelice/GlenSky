@@ -1,5 +1,6 @@
 import Styles from './Weather.module.css';
 import TestChart from './TestChart';
+import rain from '../../assets/Rain.png';
 
 const Weather = () => {
 
@@ -37,6 +38,13 @@ const Weather = () => {
       </div>
       <div className={Styles.chartWrapper}>
         <TestChart />
+      </div>
+      <div className={Styles.daysWrapper}>
+        <div className={Styles.daySelect}>
+          <span>SAT</span>
+          <img src={rain} width={75} height={75} alt="Rain" className={Styles.dayIcon} />
+          <p><span style={{ color: '#fff' }}>77°</span><span>69°</span></p>
+        </div>
       </div>
     </div>
   );

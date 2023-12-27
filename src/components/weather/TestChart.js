@@ -24,7 +24,7 @@ const TestChart = () => {
     maintainAspectRatio: false,
     scales: {
       x: {
-        position: 'top'
+        display: false,
       },
       y: {
         display: false,

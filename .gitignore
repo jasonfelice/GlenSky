@@ -19,6 +19,7 @@
 .env.production.local
 api.js
 attributions.txt
+tempData.js
 
 npm-debug.log*
 yarn-debug.log*

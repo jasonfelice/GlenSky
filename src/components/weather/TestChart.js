@@ -7,6 +7,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  Filler,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 ChartJS.register(
@@ -16,7 +17,8 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Filler
 );
 const TestChart = () => {
   const options = {
@@ -42,6 +44,7 @@ const TestChart = () => {
       data: [65, 59, 80, 81, 56, 55, 40],
       fill: true,
       borderColor: '#ff9f40',
+      backgroundColor: '#ff9f409e',
       tension: 0.1
     }],
   };

@@ -28,7 +28,7 @@ const Weather = () => {
         </div>
       </div>
       <div className={Styles.chartTabs}>
-        <div>Temperature</div>
+        <div className={Styles.selectedTab}>Temperature</div>
         <span>|</span>
         <div>Precipitation</div>
         <span>|</span>

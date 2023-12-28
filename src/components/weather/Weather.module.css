@@ -54,6 +54,39 @@
   gap: 7px;
   font-size: 1.1rem;
   opacity: 0.8;
+  user-select: none;
+}
+
+.chartTabs div {
+  cursor: pointer;
+}
+
+/* Hover tab bar */
+.chartTabs div::after {
+  content: '';
+  display: block;
+  width: 10%;
+  margin: auto;
+  height: 1px;
+  background: transparent;
+  transition: all 0.2s ease-out;
+}
+
+.chartTabs div:hover::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--hoverOrange);
+}
+
+/* Selected tab bar */
+.selectedTab::after {
+  content: '';
+  display: block;
+  width: 100% !important;
+  height: 1px;
+  background: var(--slectedOrange) !important; 
 }
 
 .chartTabs span {

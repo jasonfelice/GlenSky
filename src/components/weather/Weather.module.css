@@ -95,8 +95,21 @@
 }
 
 .chartWrapper {
-  height: 150px;
-  background-color: #fff;
+  height: 100px;
+}
+
+/* Time Selector */
+.timeWrapper {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  font-weight: 500;
+  user-select: none;
+}
+
+.timeWrapper span {
+  cursor: pointer;
 }
 
 /* Days Selector */

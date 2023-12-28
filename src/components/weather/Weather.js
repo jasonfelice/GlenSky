@@ -36,7 +36,16 @@ const Weather = () => {
         <span>|</span>
         <div>Wind</div>
       </div>
-      <div className={Styles.chartWrapper}>
+      <div className={Styles.timeWrapper}>
+          <span>1am</span>
+          <span>4am</span>
+          <span>7am</span>
+          <span>10am</span>
+          <span>1pm</span>
+          <span>4pm</span>
+          <span>7pm</span>
+        </div>
+      <div className={Styles.chartWrapper}>    
         <TestChart />
       </div>
       <div className={Styles.daysWrapper}>

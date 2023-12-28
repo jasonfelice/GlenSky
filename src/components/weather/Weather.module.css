@@ -50,9 +50,15 @@
 /* Chart selector  */
 .chartTabs {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 7px;
   font-size: 1.1rem;
   opacity: 0.8;
+}
+
+.chartTabs span {
+  font-size: 10px;
+  opacity: 0.6;
 }
 
 .chartWrapper {

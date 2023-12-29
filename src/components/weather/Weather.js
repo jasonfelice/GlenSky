@@ -1,5 +1,8 @@
 import Styles from './Weather.module.css';
-import TestChart from './TestChart';
+import TempChart from './charts/TestChart';
+import PreChart from './charts/PreChart';
+import HumidChart from './charts/HumidChart';
+import WindChart from './charts/WindChart';
 import rain from '../../assets/Rain.png';
 import { useState } from 'react';
 
@@ -48,7 +51,10 @@ const Weather = () => {
           <span>7pm</span>
         </div>
       <div className={Styles.chartWrapper}>    
-        <TestChart />
+        { (selectedTab === 'temprature') && ( <TempChart />) }
+        { (selectedTab === 'precipitation') && ( <PreChart />) }
+        { (selectedTab === 'humidity') && ( <HumidChart />) }
+        { (selectedTab === 'wind') && ( <WindChart />) }
       </div>
       <div className={Styles.daysWrapper}>
         <div className={Styles.daySelect}>

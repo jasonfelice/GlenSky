@@ -20,7 +20,7 @@ ChartJS.register(
   Legend,
   Filler
 );
-const TestChart = () => {
+const TempChart = () => {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -49,7 +49,7 @@ const TestChart = () => {
       tension: 0.1
     }],
   };
-  return (<Line options={options} data={data} />);
+  return (<Line aria-label="temp-chart" options={options} data={data} />);
 };
 
-export default TestChart;
+export default TempChart;

@@ -1,10 +1,12 @@
 import Styles from './Weather.module.css';
 import TestChart from './TestChart';
 import rain from '../../assets/Rain.png';
+import { useState } from 'react';
 
 const Weather = () => {
 
   const temp = 'F';
+  const [selectedTab, setSelectedTab] = useState('temprature');
   const selected = { color: '#fff',  };
 
   return (
@@ -28,13 +30,13 @@ const Weather = () => {
         </div>
       </div>
       <div className={Styles.chartTabs}>
-        <div className={Styles.selectedTab}>Temperature</div>
+        <div onClick={() => setSelectedTab('temprature')} className={selectedTab === 'temprature' ? Styles.selectedTab : ''}>Temperature</div>
         <span>|</span>
-        <div>Precipitation</div>
+        <div onClick={() => setSelectedTab('precipitation')} className={selectedTab === 'precipitation' ? Styles.selectedTab : ''}>Precipitation</div>
         <span>|</span>
-        <div>Humidity</div>
+        <div onClick={() => setSelectedTab('humidity')} className={selectedTab === 'humidity' ? Styles.selectedTab : ''}>Humidity</div>
         <span>|</span>
-        <div>Wind</div>
+        <div onClick={() => setSelectedTab('wind')} className={selectedTab === 'wind' ? Styles.selectedTab : ''}>Wind</div>
       </div>
       <div className={Styles.timeWrapper}>
           <span>1am</span>

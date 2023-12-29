@@ -41,6 +41,10 @@
   align-self: start;
 }
 
+.tempSelector span {
+  cursor: pointer;
+}
+
 /* Top right headline description */
 .headinfoRight {
   font-size: 0.8rem;

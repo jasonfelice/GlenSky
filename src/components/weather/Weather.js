@@ -8,9 +8,8 @@ import { useState } from 'react';
 
 const Weather = () => {
 
-  const temp = 'F';
+  const [tempSi, setTempSi] = useState('F');
   const [selectedTab, setSelectedTab] = useState('temprature');
-  const selected = { color: '#fff',  };
 
   return (
     <div className={Styles.weather}>
@@ -19,7 +18,11 @@ const Weather = () => {
           <div className={Styles.headTemprature}>
             <i className={Styles.weatherIcon} />
             <span className={Styles.averageTemp}>77°</span>
-            <div className={Styles.tempSelector}><span style={temp === 'F' ? selected : {}}>F</span>{'|'}<span style={temp === "C" ? selected : {}}>C</span> </div>
+            <div className={Styles.tempSelector}>
+              <span onClick={() => setTempSi('F')} style={tempSi === 'F' ? {color: '#fff'} : {}}>F</span>
+              {'|'}
+              <span onClick={() => setTempSi('C')} style={tempSi === "C" ? {color: '#fff'} : {}}>C</span>
+            </div>
           </div>
           <div className={Styles.description}>
             <p>Saturday</p>

@@ -44,8 +44,9 @@ const PreChart = () => {
       data: [65, 59, 80, 81, 56, 55, 40],
       borderWidth: 2,
       fill: true,
-      borderColor: '#ff9f40',
-      backgroundColor: '#ff9f409e',
+      stepped: 'before',
+      borderColor: '#1873d3',
+      backgroundColor: '#1873d3a6',
       tension: 0.1
     }],
   };

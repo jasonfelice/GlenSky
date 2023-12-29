@@ -43,9 +43,7 @@ const HumidChart = () => {
     datasets: [{
       data: [65, 59, 80, 81, 56, 55, 40],
       borderWidth: 2,
-      fill: true,
-      borderColor: '#ff9f40',
-      backgroundColor: '#ff9f409e',
+      borderColor: '#4f94cd',
       tension: 0.1
     }],
   };

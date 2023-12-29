@@ -23,7 +23,7 @@
   position: relative;
   margin: auto;
   width: 55vw;
-  height: 30vw;
+  min-height: 30vw;
   border-radius: 25px;
   padding: 20px 10px;
   background: var(--rectPri);

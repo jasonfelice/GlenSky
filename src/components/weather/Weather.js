@@ -1,5 +1,5 @@
 import Styles from './Weather.module.css';
-import TempChart from './charts/TestChart';
+import TempChart from './charts/TempChart';
 import PreChart from './charts/PreChart';
 import HumidChart from './charts/HumidChart';
 import WindChart from './charts/WindChart';

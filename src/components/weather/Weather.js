@@ -49,9 +49,6 @@ const Weather = () => {
           <span>4am</span>
           <span>7am</span>
           <span>10am</span>
-          <span>1pm</span>
-          <span>4pm</span>
-          <span>7pm</span>
         </div>
       <div className={Styles.chartWrapper}>    
         { (selectedTab === 'temprature') && ( <TempChart />) }

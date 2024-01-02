@@ -39,9 +39,9 @@ const TempChart = () => {
     }
   };
   const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: ['January', 'February', 'March', 'April'],
     datasets: [{
-      data: [65, 59, 80, 81, 56, 55, 40],
+      data: [65, 59, 80, 81],
       borderWidth: 2,
       fill: true,
       borderColor: '#ff9f40',

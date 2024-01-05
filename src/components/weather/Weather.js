@@ -1,16 +1,15 @@
+import { useState } from 'react';
 import Styles from './Weather.module.css';
 import TempChart from './charts/TempChart';
 import PreChart from './charts/PreChart';
 import HumidChart from './charts/HumidChart';
 import WindChart from './charts/WindChart';
-import rain from '../../assets/Rain.png';
-import { useState } from 'react';
+import Utils from '../../utils/Utils';
 
-const Weather = () => {
+const Weather = ({ data }) => {
 
   const [tempSi, setTempSi] = useState('F');
   const [selectedTab, setSelectedTab] = useState('temprature');
-
   return (
     <div className={Styles.weather}>
       <div className={Styles.weatherInfo}>
@@ -57,31 +56,17 @@ const Weather = () => {
         { (selectedTab === 'wind') && ( <WindChart />) }
       </div>
       <div className={Styles.daysWrapper}>
-        <div className={Styles.daySelect}>
-          <span>SAT</span>
-          <img src={rain} width={75} height={75} alt="Rain" className={Styles.dayIcon} />
-          <p><span style={{ color: '#fff' }}>77°</span><span>69°</span></p>
-        </div>
-        <div className={Styles.daySelect}>
-          <span>SUN</span>
-          <img src={rain} width={75} height={75} alt="Rain" className={Styles.dayIcon} />
-          <p><span style={{ color: '#fff' }}>77°</span><span>69°</span></p>
-        </div>
-        <div className={Styles.daySelect}>
-          <span>MON</span>
-          <img src={rain} width={75} height={75} alt="Rain" className={Styles.dayIcon} />
-          <p><span style={{ color: '#fff' }}>77°</span><span>69°</span></p>
-        </div>
-        <div className={Styles.daySelect}>
-          <span>TUE</span>
-          <img src={rain} width={75} height={75} alt="Rain" className={Styles.dayIcon} />
-          <p><span style={{ color: '#fff' }}>77°</span><span>69°</span></p>
-        </div>
-        <div className={Styles.daySelect}>
-          <span>WED</span>
-          <img src={rain} width={75} height={75} alt="Rain" className={Styles.dayIcon} />
-          <p><span style={{ color: '#fff' }}>77°</span><span>69°</span></p>
-        </div>
+        {
+          Object.keys(data).map((day) => {
+            return (
+              <div key={day} className={Styles.daySelect}>
+                <span>{Utils.getDay(day)}</span>
+                <img src={`https://openweathermap.org/img/wn/${data[day][0].weather[0].icon}@4x.png`} width={75} height={75} alt="Rain" className={Styles.dayIcon} />
+                <p><span style={{ color: '#fff' }}>77°</span><span>69°</span></p>
+              </div>
+            );
+          })
+        }
       </div>
     </div>
   );

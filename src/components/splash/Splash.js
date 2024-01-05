@@ -3,7 +3,7 @@ import Styles from './Splash.module.css';
 import morning from '../../assets/vectors/morning.svg';
 import afternoon from '../../assets/vectors/afternoon.svg';
 import night from '../../assets/vectors/night.svg';
-import getTimeOfDay from '../../utils/getTimeOfDay';
+import Utils from '../../utils/Utils';
 import Cities from './Cities';
 
 const Splash = ({ date }) => {
@@ -23,7 +23,7 @@ const Splash = ({ date }) => {
   return (
     <div className={Styles.splash}>
       <div className={Styles.vectorWrapper}>
-        <img draggable={false} className={Styles.splashVector} src={timeObject[getTimeOfDay(date)]} alt={getTimeOfDay(date)} />
+        <img draggable={false} className={Styles.splashVector} src={timeObject[Utils.getTimeOfDay(date)]} alt={Utils.getTimeOfDay(date)} />
       </div>
       <div className={Styles.citySelect}>
         <form aria-label="form"  onClick={() => setInputFocus(true)} className={Styles.inputWrapper}>

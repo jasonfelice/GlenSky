@@ -1,5 +1,5 @@
 export default class Utils {
-  getCurrentDate = (date) => {
+  static getCurrentDate = (date) => {
     const months = {
       0: 'January',
       1: 'February',
@@ -18,7 +18,7 @@ export default class Utils {
     return `${day}, ${months[date.getMonth()]} ${date.getDate()}`;
   };
 
-  getTimeOfDay = (date) => {
+  static getTimeOfDay = (date) => {
     const hour = date.getHours();
     if (hour >= 6 && hour < 12) {
       return "morning";
@@ -27,5 +27,10 @@ export default class Utils {
     } else {
       return "night";
     }
+  };
+
+  static getDay = (date) => {
+    const day = new Date(date + 'T00:00:00');
+    return day.toLocaleDateString('en-US', { weekday: 'short' });;
   };
 };

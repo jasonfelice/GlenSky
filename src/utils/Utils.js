@@ -33,4 +33,12 @@ export default class Utils {
     const day = new Date(date + 'T00:00:00');
     return day.toLocaleDateString('en-US', { weekday: 'short' });;
   };
+
+  static getHour  = (time) => {
+    const hour = +time.slice(11, 13);
+    if (hour === 0) return '12am';
+    if (hour === 12) return '12pm';
+    if (hour < 12) return `${hour}am`;
+    if (hour > 12) return `${hour - 12}pm`
+  };
 };

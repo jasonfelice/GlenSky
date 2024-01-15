@@ -10,6 +10,8 @@ const Weather = ({ data }) => {
 
   const [tempSi, setTempSi] = useState('F');
   const [selectedTab, setSelectedTab] = useState('temprature');
+  const [selectedDay, setSelectedDay] = useState(Object.keys(data)[0]);
+  const selectedData = data[selectedDay];
   return (
     <div className={Styles.weather}>
       <div className={Styles.weatherInfo}>
@@ -44,10 +46,11 @@ const Weather = ({ data }) => {
         <div onClick={() => setSelectedTab('wind')} className={selectedTab === 'wind' ? Styles.selectedTab : ''}>Wind</div>
       </div>
       <div className={Styles.timeWrapper}>
-          <span>1am</span>
-          <span>4am</span>
-          <span>7am</span>
-          <span>10am</span>
+          {
+            selectedData.map((sData) => (
+              <span>{Utils.getHour(sData.dt_txt)}</span>
+            ))
+          }
         </div>
       <div className={Styles.chartWrapper}>    
         { (selectedTab === 'temprature') && ( <TempChart />) }
@@ -59,7 +62,7 @@ const Weather = ({ data }) => {
         {
           Object.keys(data).map((day) => {
             return (
-              <div key={day} className={Styles.daySelect}>
+              <div onClick={() => setSelectedDay(day)} key={day} className={Styles.daySelect}>
                 <span>{Utils.getDay(day)}</span>
                 <img src={`https://openweathermap.org/img/wn/${data[day][0].weather[0].icon}@4x.png`} width={75} height={75} alt="Rain" className={Styles.dayIcon} />
                 <p><span style={{ color: '#fff' }}>77°</span><span>69°</span></p>

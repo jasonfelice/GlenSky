@@ -24,8 +24,7 @@ ChartJS.register(
 const HumidChart = ({ humid }) => {
   const [humidities, setHumidities] = useState([]);
   useEffect(() => {
-    const hData = [];
-    humid.forEach((each) => hData.push(each.main.humidity));
+    const hData = humid.map(each => each.main.humidity);
     setHumidities(hData);
   }, [humid]);
 
@@ -47,9 +46,8 @@ const HumidChart = ({ humid }) => {
     }
   };
   const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: humidities.map(() => ''),
     datasets: [{
-      labels: { display: false},
       data: humidities,
       borderWidth: 2,
       borderColor: '#4f94cd',

@@ -48,7 +48,7 @@ const Weather = ({ data }) => {
       <div className={Styles.timeWrapper}>
           {
             selectedData.map((sData) => (
-              <span>{Utils.getHour(sData.dt_txt)}</span>
+              <span key={sData.dt}>{Utils.getHour(sData.dt_txt)}</span>
             ))
           }
         </div>
@@ -56,7 +56,7 @@ const Weather = ({ data }) => {
         { (selectedTab === 'temprature') && ( <TempChart />) }
         { (selectedTab === 'precipitation') && ( <PreChart />) }
         { (selectedTab === 'humidity') && ( <HumidChart />) }
-        { (selectedTab === 'wind') && ( <WindChart />) }
+        { (selectedTab === 'wind') && ( <WindChart data={selectedData} />) }
       </div>
       <div className={Styles.daysWrapper}>
         {

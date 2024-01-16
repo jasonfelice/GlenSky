@@ -45,4 +45,16 @@ export default class Utils {
     if (hour < 12) return `${hour}am`;
     if (hour > 12) return `${hour - 12}pm`
   };
+
+  // Convert to Celcius
+  static convertToCelcius(kelvin) {
+    return kelvin - 273.15;
+  }
+
+  
+  // Convert to Fahrenheit
+  static convertToFahrenheit(kelvin) {
+    const celsius = kelvin - 273.15;
+    return (celsius * 9/5) + 32;
+  }
 };

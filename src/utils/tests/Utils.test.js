@@ -27,4 +27,12 @@ describe('Utils Test', () => {
     const result = Utils.getHour('2023-12-29 12:00:00');
     expect(result).toBe('12pm');
   });
+  test('273.15 should be 0 C', () => {
+    const result = Utils.convertToCelcius(273.15);
+    expect(result).toBe(0);
+  });
+  test('250.1 should be -9.489999999999966', () => {
+    const result = Utils.convertToFahrenheit(250.1);
+    expect(result).toBe(-9.489999999999966);
+  });
 });

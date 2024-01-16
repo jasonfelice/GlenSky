@@ -9,6 +9,7 @@ import {
   Legend,
   Filler,
 } from 'chart.js';
+import { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 ChartJS.register(
   CategoryScale,
@@ -20,7 +21,14 @@ ChartJS.register(
   Legend,
   Filler
 );
-const HumidChart = () => {
+const HumidChart = ({ humid }) => {
+  const [humidities, setHumidities] = useState([]);
+  useEffect(() => {
+    const hData = [];
+    humid.forEach((each) => hData.push(each.main.humidity));
+    setHumidities(hData);
+  }, [humid]);
+
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -41,7 +49,8 @@ const HumidChart = () => {
   const data = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
     datasets: [{
-      data: [65, 59, 80, 81, 56, 55, 40],
+      labels: { display: false},
+      data: humidities,
       borderWidth: 2,
       borderColor: '#4f94cd',
       tension: 0.1

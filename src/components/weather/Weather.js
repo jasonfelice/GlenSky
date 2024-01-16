@@ -55,7 +55,7 @@ const Weather = ({ data }) => {
       <div className={Styles.chartWrapper}>    
         { (selectedTab === 'temprature') && ( <TempChart />) }
         { (selectedTab === 'precipitation') && ( <PreChart />) }
-        { (selectedTab === 'humidity') && ( <HumidChart />) }
+        { (selectedTab === 'humidity') && ( <HumidChart humid={selectedData} />) }
         { (selectedTab === 'wind') && ( <WindChart data={selectedData} />) }
       </div>
       <div className={Styles.daysWrapper}>

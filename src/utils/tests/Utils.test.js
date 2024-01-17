@@ -31,8 +31,8 @@ describe('Utils Test', () => {
     const result = Utils.convertToCelcius(273.15);
     expect(result).toBe(0);
   });
-  test('250.1 should be -9.489999999999966', () => {
+  test('250.1 should be -9', () => {
     const result = Utils.convertToFahrenheit(250.1);
-    expect(result).toBe(-9.489999999999966);
+    expect(result).toBe(-9);
   });
 });

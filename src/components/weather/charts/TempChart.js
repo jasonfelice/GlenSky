@@ -9,6 +9,7 @@ import {
   Legend,
   Filler,
 } from 'chart.js';
+import { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 ChartJS.register(
   CategoryScale,
@@ -20,7 +21,14 @@ ChartJS.register(
   Legend,
   Filler
 );
-const TempChart = () => {
+const TempChart = ({ temps, convertTemp }) => {
+  const [tempData, setTempData] = useState([]);
+
+  useEffect(() => {
+    const data = temps.map(each => convertTemp(each.main.temp));
+    setTempData(data);
+  }, [temps, convertTemp]);
+
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -39,9 +47,9 @@ const TempChart = () => {
     }
   };
   const data = {
-    labels: ['January', 'February', 'March', 'April'],
+    labels: tempData.map(() => ''),
     datasets: [{
-      data: [65, 59, 80, 81],
+      data: tempData,
       borderWidth: 2,
       fill: true,
       borderColor: '#ff9f40',

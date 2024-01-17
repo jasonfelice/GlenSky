@@ -9,9 +9,12 @@ import Utils from '../../utils/Utils';
 const Weather = ({ data }) => {
 
   const [tempSi, setTempSi] = useState('F');
+  // Sets the temprature converter by checking the state of selected SI unit
+  const convertTemp = (tempSi === 'C') ? Utils.convertToCelcius : Utils.convertToFahrenheit;
   const [selectedTab, setSelectedTab] = useState('temprature');
   const [selectedDay, setSelectedDay] = useState(Object.keys(data)[0]);
   const selectedData = data[selectedDay];
+
   return (
     <div className={Styles.weather}>
       <div className={Styles.weatherInfo}>
@@ -65,7 +68,7 @@ const Weather = ({ data }) => {
               <div onClick={() => setSelectedDay(day)} key={day} className={Styles.daySelect}>
                 <span>{Utils.getDay(day)}</span>
                 <img src={`https://openweathermap.org/img/wn/${data[day][0].weather[0].icon}@4x.png`} width={75} height={75} alt="Rain" className={Styles.dayIcon} />
-                <p><span style={{ color: '#fff' }}>77°</span><span>69°</span></p>
+                <p><span style={{ color: '#fff' }}>{convertTemp(245)}°</span><span>69°</span></p>
               </div>
             );
           })

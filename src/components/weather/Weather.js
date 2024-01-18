@@ -13,7 +13,9 @@ const Weather = ({ data }) => {
   const convertTemp = (tempSi === 'C') ? Utils.convertToCelcius : Utils.convertToFahrenheit;
   const [selectedTab, setSelectedTab] = useState('temprature');
   const [selectedDay, setSelectedDay] = useState(Object.keys(data)[0]);
+  const [selectedTime, setSelectedTime] = useState(data[selectedDay][0]);
   const selectedData = data[selectedDay];
+  const {main, weather, wind, rain} = selectedTime;
 
   return (
     <div className={Styles.weather}>
@@ -21,7 +23,7 @@ const Weather = ({ data }) => {
         <div className={Styles.headInfoLeft}>
           <div className={Styles.headTemprature}>
             <i className={Styles.weatherIcon} />
-            <span className={Styles.averageTemp}>77°</span>
+            <span className={Styles.averageTemp}>{convertTemp(selectedTime.main.temp)}°</span>
             <div className={Styles.tempSelector}>
               <span onClick={() => setTempSi('F')} style={tempSi === 'F' ? {color: '#fff'} : {}}>F</span>
               {'|'}
@@ -30,13 +32,13 @@ const Weather = ({ data }) => {
           </div>
           <div className={Styles.description}>
             <p>Saturday</p>
-            <p>Clear with periodic clouds</p>
+            <p>{`${weather[0].main} | ${weather[0].description}`}</p>
           </div>
         </div>
         <div className={Styles.headinfoRight}>
-          <p>Precipiration: 24%</p>
-          <p>Humidity: 40%</p>
-          <p>Wind: 5mph</p>
+          <p>Precipiration: {(!!rain) ? Math.floor(rain['3h']*100) : 0}%</p>
+          <p>Humidity: {main.humidity}%</p>
+          <p>Wind: {wind.speed}m/s</p>
         </div>
       </div>
       <div className={Styles.chartTabs}>
@@ -50,8 +52,8 @@ const Weather = ({ data }) => {
       </div>
       <div className={Styles.timeWrapper}>
           {
-            selectedData.map((sData) => (
-              <span key={sData.dt}>{Utils.getHour(sData.dt_txt)}</span>
+            selectedData.map((each) => (
+              <span onClick={() => setSelectedTime(each)} key={each.dt}>{Utils.getHour(each.dt_txt)}</span>
             ))
           }
         </div>

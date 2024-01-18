@@ -21,12 +21,12 @@ ChartJS.register(
   Legend,
   Filler
 );
-const HumidChart = ({ humid }) => {
+const HumidChart = ({ selectedData }) => {
   const [humidities, setHumidities] = useState([]);
   useEffect(() => {
-    const hData = humid.map(each => each.main.humidity);
+    const hData = selectedData.map(each => each.main.humidity);
     setHumidities(hData);
-  }, [humid]);
+  }, [selectedData]);
 
   const options = {
     responsive: true,

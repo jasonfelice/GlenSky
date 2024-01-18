@@ -1,6 +1,6 @@
 import arrow from '../../../assets/icons/arrow.svg';
 
-const WindChart = ({ data }) => {
+const WindChart = ({ selectedData }) => {
   const windWrapperStyle = {
     display: 'flex',
     alignItems: 'center',
@@ -19,7 +19,7 @@ const WindChart = ({ data }) => {
   return (
     <div style={windWrapperStyle} aria-label="wind-chart">
         {
-          data.map((each) => (
+          selectedData.map((each) => (
             <i key={each.dt} style={{ ...windStyle, transform: `rotate(${each.wind.deg}deg)` }} />
           ))
         }

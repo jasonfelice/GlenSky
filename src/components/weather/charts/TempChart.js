@@ -21,13 +21,13 @@ ChartJS.register(
   Legend,
   Filler
 );
-const TempChart = ({ temps, convertTemp }) => {
+const TempChart = ({ selectedData, convertTemp }) => {
   const [tempData, setTempData] = useState([]);
 
   useEffect(() => {
-    const data = temps.map(each => convertTemp(each.main.temp));
+    const data = selectedData.map(each => convertTemp(each.main.temp));
     setTempData(data);
-  }, [temps, convertTemp]);
+  }, [selectedData, convertTemp]);
 
   const options = {
     responsive: true,

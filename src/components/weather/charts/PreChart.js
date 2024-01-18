@@ -20,7 +20,7 @@ ChartJS.register(
   Legend,
   Filler
 );
-const PreChart = () => {
+const PreChart = ({ selectedData }) => {
   const options = {
     responsive: true,
     maintainAspectRatio: false,

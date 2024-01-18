@@ -23,7 +23,9 @@ ChartJS.register(
 );
 const HumidChart = ({ selectedData }) => {
   const [humidities, setHumidities] = useState([]);
+
   useEffect(() => {
+    // Create an array for humidity data
     const hData = selectedData.map(each => each.main.humidity);
     setHumidities(hData);
   }, [selectedData]);

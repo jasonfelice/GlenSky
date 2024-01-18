@@ -25,6 +25,7 @@ const TempChart = ({ selectedData, convertTemp }) => {
   const [tempData, setTempData] = useState([]);
 
   useEffect(() => {
+    // Create an array for temprature data
     const data = selectedData.map(each => convertTemp(each.main.temp));
     setTempData(data);
   }, [selectedData, convertTemp]);

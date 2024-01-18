@@ -23,7 +23,9 @@ ChartJS.register(
 );
 const PreChart = ({ selectedData }) => {
   const [pres, setPres] = useState([]);
+
   useEffect(() => {
+    // Create an array for precipitation data
     const data = selectedData.map((each) => (!!each.rain) ? each.rain['3h'] : 0);
     setPres(data);
   }, [selectedData]);

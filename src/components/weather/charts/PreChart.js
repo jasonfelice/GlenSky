@@ -9,6 +9,7 @@ import {
   Legend,
   Filler,
 } from 'chart.js';
+import { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 ChartJS.register(
   CategoryScale,
@@ -21,6 +22,12 @@ ChartJS.register(
   Filler
 );
 const PreChart = ({ selectedData }) => {
+  const [pres, setPres] = useState([]);
+  useEffect(() => {
+    const data = selectedData.map((each) => (!!each.rain) ? each.rain['3h'] : 0);
+    setPres(data);
+  }, [selectedData]);
+
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -39,9 +46,9 @@ const PreChart = ({ selectedData }) => {
     }
   };
   const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: pres.map(() => ''),
     datasets: [{
-      data: [65, 59, 80, 81, 56, 55, 40],
+      data: pres,
       borderWidth: 2,
       fill: true,
       stepped: 'before',

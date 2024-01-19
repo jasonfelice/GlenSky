@@ -46,6 +46,19 @@ export default class Utils {
     if (hour > 12) return `${hour - 12}pm`
   };
 
+  // Convert to date to day weekday month
+  static convertDate = (date) => {
+    const dateObject = new Date(date);
+
+    const options = {
+      weekday: "short",
+      day: "numeric",
+      month: "short"
+    };
+
+    return dateObject.toLocaleDateString("en-US", options);
+  };
+
   // Convert to Celcius
   static convertToCelcius(kelvin) {
     return Math.floor(kelvin - 273.15);

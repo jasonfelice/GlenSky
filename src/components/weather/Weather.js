@@ -31,7 +31,7 @@ const Weather = ({ data }) => {
             </div>
           </div>
           <div className={Styles.description}>
-            <p>Saturday</p>
+            <p>{Utils.convertDate(selectedTime.dt_txt.slice(0, 10))}</p>
             <p>{`${weather[0].main} | ${weather[0].description}`}</p>
           </div>
         </div>

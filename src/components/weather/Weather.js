@@ -67,10 +67,17 @@ const Weather = ({ data }) => {
         {
           Object.keys(data).map((day) => {
             return (
-              <div onClick={() => setSelectedDay(day)} key={day} className={Styles.daySelect}>
+              <div
+                onClick={() => {
+                  setSelectedDay(day);
+                  setSelectedTime(data[day][0]);
+                }}
+                key={day}
+                className={Styles.daySelect}
+              >
                 <span>{Utils.getDay(day)}</span>
                 <img src={`https://openweathermap.org/img/wn/${data[day][0].weather[0].icon}@4x.png`} width={75} height={75} alt="Rain" className={Styles.dayIcon} />
-                <p><span style={{ color: '#fff' }}>{convertTemp(245)}°</span><span>69°</span></p>
+                <p><span style={{ color: '#fff' }}>{convertTemp(data[day][0].main.temp_max)}°</span><span>{convertTemp(data[day][0].main.temp_min)}°</span></p>
               </div>
             );
           })

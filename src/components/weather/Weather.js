@@ -22,7 +22,7 @@ const Weather = ({ data }) => {
       <div className={Styles.weatherInfo}>
         <div className={Styles.headInfoLeft}>
           <div className={Styles.headTemprature}>
-            <i className={Styles.weatherIcon} />
+            <i className={Styles.weatherIcon} style={{ background: `url(https://openweathermap.org/img/wn/${selectedTime.weather[0].icon}@4x.png) no-repeat center center` }} />
             <span className={Styles.averageTemp}>{convertTemp(selectedTime.main.temp)}°</span>
             <div className={Styles.tempSelector}>
               <span onClick={() => setTempSi('F')} style={tempSi === 'F' ? {color: '#fff'} : {}}>F</span>

@@ -11,7 +11,7 @@
 
 /* headline icon style  */
 .weatherIcon {
-  background: url(../../assets/Rain.png) no-repeat center center/cover;
+  background-size: 110px !important;
   display: block;
   width: 80px;
   height: 80px;

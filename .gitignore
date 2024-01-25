@@ -18,6 +18,7 @@
 .env.test.local
 .env.production.local
 api.js
+.env
 attributions.txt
 tempData.js
 

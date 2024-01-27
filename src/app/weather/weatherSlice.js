@@ -20,3 +20,22 @@ export const getWeather = createAsyncThunk(
     }
   },
 );
+
+const weatherSlice = createSlice({
+  name: 'weather',
+  initialState,
+  extraReducers: (builder) => {
+    builder
+      .addCase(getWeather.pending, (state, action) => {
+        state.status = 'peding';
+      })
+      .addCase(getWeather.fulfilled, (state, acation) => {
+        state.status = 'idle';
+      })
+      .addCase(getWeather.rejected, (state, action) => {
+        state.status = 'failed';
+      })
+  },
+});
+
+export default weatherSlice.reducer;

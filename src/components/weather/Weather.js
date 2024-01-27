@@ -1,21 +1,37 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Styles from './Weather.module.css';
 import TempChart from './charts/TempChart';
 import PreChart from './charts/PreChart';
 import HumidChart from './charts/HumidChart';
 import WindChart from './charts/WindChart';
 import Utils from '../../utils/Utils';
+import { getWeather } from '../../app/weather/weatherSlice';
 
 const Weather = ({ data }) => {
 
+  const dispatch = useDispatch();
+  const tData = (useSelector((state) => state.weather));
+
+  // Set Deafult temperature to Fahrenheit
   const [tempSi, setTempSi] = useState('F');
+
   // Sets the temprature converter by checking the state of selected SI unit
   const convertTemp = (tempSi === 'C') ? Utils.convertToCelcius : Utils.convertToFahrenheit;
+
+  // Set temperature tab as default
   const [selectedTab, setSelectedTab] = useState('temprature');
+
   const [selectedDay, setSelectedDay] = useState(Object.keys(data)[0]);
   const [selectedTime, setSelectedTime] = useState(data[selectedDay][0]);
   const selectedData = data[selectedDay];
+
+  // Deconstruct weather data from selected time
   const {main, weather, wind, rain} = selectedTime;
+
+  useEffect(() => {
+    dispatch(getWeather());
+  }, [dispatch]);
 
   return (
     <div className={Styles.weather}>

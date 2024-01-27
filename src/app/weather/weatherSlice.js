@@ -27,10 +27,11 @@ const weatherSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getWeather.pending, (state, action) => {
-        state.status = 'peding';
+        state.status = 'pending';
       })
-      .addCase(getWeather.fulfilled, (state, acation) => {
+      .addCase(getWeather.fulfilled, (state, action) => {
         state.status = 'idle';
+        state.weather = action.payload;
       })
       .addCase(getWeather.rejected, (state, action) => {
         state.status = 'failed';

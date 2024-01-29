@@ -8,10 +8,12 @@ import WindChart from './charts/WindChart';
 import Utils from '../../utils/Utils';
 import { getWeather } from '../../app/weather/weatherSlice';
 
-const Weather = ({ data }) => {
-
+const Weather = () => {
   const dispatch = useDispatch();
-  const tData = (useSelector((state) => state.weather));
+  const weatherState = (useSelector((state) => state.weather));
+
+  const { selectedDay, selectedTime, selectedData } = weatherState;
+  const data = weatherState.weather.list;
 
   // Set Deafult temperature to Fahrenheit
   const [tempSi, setTempSi] = useState('F');
@@ -22,19 +24,19 @@ const Weather = ({ data }) => {
   // Set temperature tab as default
   const [selectedTab, setSelectedTab] = useState('temprature');
 
-  const [selectedDay, setSelectedDay] = useState(Object.keys(data)[0]);
-  const [selectedTime, setSelectedTime] = useState(data[selectedDay][0]);
-  const selectedData = data[selectedDay];
-
-  // Deconstruct weather data from selected time
-  const {main, weather, wind, rain} = selectedTime;
-
   useEffect(() => {
-    dispatch(getWeather());
+    dispatch(getWeather())
+      .then(() => {
+  
+      });
+    
   }, [dispatch]);
 
   return (
     <div className={Styles.weather}>
+      {
+        (weatherState.status === 'fetched') && (
+          <>
       <div className={Styles.weatherInfo}>
         <div className={Styles.headInfoLeft}>
           <div className={Styles.headTemprature}>
@@ -48,13 +50,13 @@ const Weather = ({ data }) => {
           </div>
           <div className={Styles.description}>
             <p>{Utils.convertDate(selectedTime.dt_txt.slice(0, 10))}</p>
-            <p>{`${weather[0].main} | ${weather[0].description}`}</p>
+            <p>{`${selectedTime.weather[0].main} | ${selectedTime.weather[0].description}`}</p>
           </div>
         </div>
         <div className={Styles.headinfoRight}>
-          <p>Precipiration: {(!!rain) ? Math.floor(rain['3h']*100) : 0}%</p>
-          <p>Humidity: {main.humidity}%</p>
-          <p>Wind: {wind.speed}m/s</p>
+          <p>Precipiration: {(!!selectedTime.rain) ? Math.floor(selectedTime.rain['3h']*100) : 0}%</p>
+          <p>Humidity: {selectedTime.main.humidity}%</p>
+          <p>Wind: {selectedTime.wind.speed}m/s</p>
         </div>
       </div>
       <div className={Styles.chartTabs}>
@@ -69,7 +71,7 @@ const Weather = ({ data }) => {
       <div className={Styles.timeWrapper}>
           {
             selectedData.map((each) => (
-              <span onClick={() => setSelectedTime(each)} key={each.dt}>{Utils.getHour(each.dt_txt)}</span>
+              <span key={each.dt}>{Utils.getHour(each.dt_txt)}</span>
             ))
           }
         </div>
@@ -85,8 +87,8 @@ const Weather = ({ data }) => {
             return (
               <div
                 onClick={() => {
-                  setSelectedDay(day);
-                  setSelectedTime(data[day][0]);
+                  // setSelectedDay(day);
+                  // setSelectedTime(data[day][0]);
                 }}
                 key={day}
                 className={Styles.daySelect}
@@ -99,6 +101,8 @@ const Weather = ({ data }) => {
           })
         }
       </div>
+      </>
+      )}
     </div>
   );
 };

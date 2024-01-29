@@ -1,10 +1,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const URL = 'https://jsonplaceholder.typicode.com/posts';
+const OPEN_KEY = process.env.REACT_APP_OPEN_KEY
+const URL = `https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=${OPEN_KEY}`;
 
 const initialState = {
   weather: {},
+  selectedDay: '',
+  selectedTime: {},
+  selectedData: [],
   status: 'idle',
   error: null,
 };
@@ -21,6 +25,18 @@ export const getWeather = createAsyncThunk(
   },
 );
 
+const groupDays = (data) => {
+  const groupedDays = {};
+  data.forEach((item) => {
+    const day = item.dt_txt.split(' ')[0];
+    if (!groupedDays[day]) {
+      groupedDays[day] = [];
+    }
+    groupedDays[day].push(item);
+  });
+  return groupedDays;
+};
+
 const weatherSlice = createSlice({
   name: 'weather',
   initialState,
@@ -30,8 +46,11 @@ const weatherSlice = createSlice({
         state.status = 'pending';
       })
       .addCase(getWeather.fulfilled, (state, action) => {
-        state.status = 'idle';
-        state.weather = action.payload;
+        state.weather = {message: action.payload.message, list: groupDays(action.payload.list)};
+        state.selectedDay = Object.keys(state.weather.list)[0];
+        state.selectedTime = state.weather.list[state.selectedDay][0];
+        state.selectedData = state.weather.list[state.selectedDay];
+        state.status = 'fetched';
       })
       .addCase(getWeather.rejected, (state, action) => {
         state.status = 'failed';

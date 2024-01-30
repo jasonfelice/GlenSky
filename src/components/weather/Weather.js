@@ -7,13 +7,13 @@ import HumidChart from './charts/HumidChart';
 import WindChart from './charts/WindChart';
 import Utils from '../../utils/Utils';
 import { getWeather } from '../../app/weather/weatherSlice';
-import { setSelectedData, setSelectedTime, setSelectedDay } from '../../app/weather/weatherSlice';
+import { setSelectedTime, setSelectedDay } from '../../app/weather/weatherSlice';
 
 const Weather = () => {
   const dispatch = useDispatch();
   const weatherState = (useSelector((state) => state.weather));
 
-  const { selectedDay, selectedTime, selectedData } = weatherState;
+  const { selectedTime, selectedData } = weatherState;
   const data = weatherState.weather.list;
 
   // Set Deafult temperature to Fahrenheit
@@ -72,7 +72,7 @@ const Weather = () => {
       <div className={Styles.timeWrapper}>
           {
             selectedData.map((each) => (
-              <span key={each.dt}>{Utils.getHour(each.dt_txt)}</span>
+              <span onClick={() => dispatch(setSelectedTime(each))} key={each.dt}>{Utils.getHour(each.dt_txt)}</span>
             ))
           }
         </div>

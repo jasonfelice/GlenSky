@@ -42,7 +42,7 @@ const weatherSlice = createSlice({
   initialState,
   reducers: {
     setSelectedDay: (state, action) => {
-      const { selectedDay } = action.payload;
+      const selectedDay  = action.payload;
       state.selectedTime = state.weather.list[selectedDay][0];
       state.selectedData = state.weather.list[selectedDay];
     },

@@ -7,6 +7,7 @@ import HumidChart from './charts/HumidChart';
 import WindChart from './charts/WindChart';
 import Utils from '../../utils/Utils';
 import { getWeather } from '../../app/weather/weatherSlice';
+import { setSelectedData, setSelectedTime, setSelectedDay } from '../../app/weather/weatherSlice';
 
 const Weather = () => {
   const dispatch = useDispatch();
@@ -87,8 +88,7 @@ const Weather = () => {
             return (
               <div
                 onClick={() => {
-                  // setSelectedDay(day);
-                  // setSelectedTime(data[day][0]);
+                  dispatch(setSelectedDay(day));
                 }}
                 key={day}
                 className={Styles.daySelect}

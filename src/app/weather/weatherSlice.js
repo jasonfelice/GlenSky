@@ -57,7 +57,11 @@ const weatherSlice = createSlice({
         state.status = 'pending';
       })
       .addCase(getWeather.fulfilled, (state, action) => {
-        state.weather = {message: action.payload.message, list: groupDays(action.payload.list)};
+        state.weather = {
+          location: `${action.payload.city.name}, ${action.payload.city.country}`,
+          message: action.payload.message,
+          list: groupDays(action.payload.list),
+        };
         state.selectedDay = Object.keys(state.weather.list)[0];
         state.selectedTime = state.weather.list[state.selectedDay][0];
         state.selectedData = state.weather.list[state.selectedDay];

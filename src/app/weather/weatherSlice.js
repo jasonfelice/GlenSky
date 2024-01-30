@@ -40,6 +40,21 @@ const groupDays = (data) => {
 const weatherSlice = createSlice({
   name: 'weather',
   initialState,
+  reducers: {
+    setSelectedDay: (state, action) => {
+      const { selectedDay } = action.payload;
+      state.selectedTime = state.weather.list[selectedDay][0];
+      state.selectedData = state.weather.list[selectedDay];
+    },
+    setSelectedTime: (state, action) => {
+      const { selectedTime } = action.payload;
+      state.selectedTime = selectedTime;
+    },
+    setSelectedData: (state, action) => {
+      const { selectedData } = action.payload;
+      state.selectedData = selectedData;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getWeather.pending, (state, action) => {
@@ -57,5 +72,7 @@ const weatherSlice = createSlice({
       })
   },
 });
+
+export const { setSelectedData, setSelectedDay, setSelectedTime } = weatherSlice.actions;
 
 export default weatherSlice.reducer;

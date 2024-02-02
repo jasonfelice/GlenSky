@@ -5,7 +5,7 @@ const Cities = ({ cities }) => {
     <ul className={Styles.cities}>
         {
           cities.map((city) => (
-            <li>{city.name}</li>
+            <li key={city.place_id}>{city.description}</li>
           ))
         }
     </ul>

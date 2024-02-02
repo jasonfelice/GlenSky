@@ -4,13 +4,14 @@ import axios from 'axios';
 const G_KEY = process.env.REACT_APP_G_KEY;
 
 const initialState = {
-  cities: [],
+  list: [],
   status: 'idle',
+  error: null,
 };
 
 export const getCities = createAsyncThunk('weather/cities', async (input) => {
     try {
-        const response = await axios.get(`https://maps.googleapis.com/maps/api/place/autocomplete/json?${input}=kullu&types=geocode&key=${G_KEY}`);
+        const response = await axios.get(`https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${input}&types=geocode&key=${G_KEY}`);
         return response.data.predictions;
     } catch (error) {
         return error.message;
@@ -26,8 +27,12 @@ const citiesSlice = createSlice({
         state.status = 'pending';
       })
       .addCase(getCities.fulfilled, (state, action) => {
-        state.cities = action.payload;
+        state.list = action.payload;
         state.status = 'idle';
+      })
+      .addCase(getCities.rejected, (state, action) => {
+        state.error = action.payload
+        state.status =  'failed';
       })
   },
 });

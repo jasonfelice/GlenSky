@@ -4,7 +4,7 @@ const Cities = ({ cities }) => {
   return (
     <ul className={Styles.cities}>
         {
-          cities.map((city) => (
+          (Array.isArray(cities)) && cities.map((city) => (
             <li key={city.place_id}>{city.description}</li>
           ))
         }

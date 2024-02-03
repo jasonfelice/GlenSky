@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import Styles from './Splash.module.css';
 import morning from '../../assets/vectors/morning.svg';
 import afternoon from '../../assets/vectors/afternoon.svg';
@@ -11,6 +12,7 @@ import { getCities } from '../../app/cities/citiesSlice';
 const Splash = ({ date }) => {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const wrapperRef = useRef(null);
 
   // Get cities data from redux store
@@ -55,11 +57,20 @@ const Splash = ({ date }) => {
   return (
     <div className={Styles.splash}>
       <div className={Styles.vectorWrapper}>
-        <img draggable={false} className={Styles.splashVector} src={timeObject[Utils.getTimeOfDay(date)]} alt={Utils.getTimeOfDay(date)} />
+        <img
+          draggable={false}
+          className={Styles.splashVector}
+          // Uses current time to select vector graphic
+          src={timeObject[Utils.getTimeOfDay(date)]}
+          alt={Utils.getTimeOfDay(date)} />
       </div>
       <div className={Styles.citySelect}>
         <form ref={wrapperRef} aria-label="form"  onClick={() => setInputFocus(true)} className={Styles.inputWrapper}>
-          { loading ? (<i className={`${Styles.icon} ${Styles.spin}`} />) : (<i className={`${Styles.icon} ${Styles.enter}`} />)}
+          { loading ?
+            (<i className={`${Styles.icon} ${Styles.spin}`} />) :
+            // Get weather with city name
+            (<i onClick={() => navigate(`/weather/name/${input}`)} className={`${Styles.icon} ${Styles.enter}`} />)
+          }
           { !inputFocus && (<p>Las Vegas, Nevada, USA</p>)}
           { inputFocus && (<input autoFocus placeholder='Las Vegas, Nevada, USA' onChange={(e) => setInput(e.target.value)} onBlur={() => setInputFocus(!!input)} type="text" value={input} />)}
           <i onClick={() => dispatch(getCities(input))} className={`${Styles.icon} ${Styles.find}`} />

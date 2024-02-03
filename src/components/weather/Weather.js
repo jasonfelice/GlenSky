@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import Styles from './Weather.module.css';
 import TempChart from './charts/TempChart';
 import PreChart from './charts/PreChart';
@@ -9,8 +10,9 @@ import Utils from '../../utils/Utils';
 import { getWeather } from '../../app/weather/weatherSlice';
 import { setSelectedTime, setSelectedDay } from '../../app/weather/weatherSlice';
 
-const Weather = () => {
+const Weather = ({ type }) => {
   const dispatch = useDispatch();
+  const { city } = useParams();
   const weatherState = (useSelector((state) => state.weather));
 
   const { selectedTime, selectedData } = weatherState;
@@ -26,12 +28,9 @@ const Weather = () => {
   const [selectedTab, setSelectedTab] = useState('temprature');
 
   useEffect(() => {
-    dispatch(getWeather())
-      .then(() => {
-  
-      });
+    dispatch(getWeather(type, city));
     
-  }, [dispatch]);
+  }, [dispatch, type, city]);
 
   return (
     <div className={Styles.weather}>

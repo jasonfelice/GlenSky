@@ -74,15 +74,22 @@ const Splash = ({ date }) => {
           alt={Utils.getTimeOfDay(date)} />
       </div>
       <div className={Styles.citySelect}>
-        <form ref={wrapperRef} aria-label="form"  onClick={() => setInputFocus(true)} className={Styles.inputWrapper}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            dispatch(getCities(input));
+          }}
+          onClick={() => setInputFocus(true)}
+          ref={wrapperRef} aria-label="form"
+          className={Styles.inputWrapper}>
           { loading ?
             (<i className={`${Styles.icon} ${Styles.spin}`} />) :
             // Get weather with city name
-            (<i onClick={() => navigate(`/weather/name/${input}`)} className={`${Styles.icon} ${Styles.enter}`} />)
+           input && (<i onClick={() => dispatch(getCities(input))} className={`${Styles.icon} ${Styles.find}`} />)
           }
           { !inputFocus && (<p>Las Vegas, Nevada, USA</p>)}
           { inputFocus && (<input autoFocus placeholder='Las Vegas, Nevada, USA' onChange={(e) => setInput(e.target.value)} onBlur={() => setInputFocus(!!input)} type="text" value={input} />)}
-          <i onClick={() => dispatch(getCities(input))} className={`${Styles.icon} ${Styles.find}`} />
+          <i onClick={() => navigate(`/weather/name/${input}`)} className={`${Styles.icon} ${Styles.enter}`} />
          {toggleCities && <Cities cities={cities.list} />}
         </form>
         {/* Search weather with device location */}

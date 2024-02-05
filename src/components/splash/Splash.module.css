@@ -92,21 +92,30 @@
 
 .icon {
   position: absolute;
+  cursor: pointer;
   width: 30px;
   height: 30px;
   filter: invert(0.4);
+  transition: all 0.2s ease-out;
 }
 
-.find {
-  background: url(../../assets/icons/find.svg) no-repeat center center/cover;
+.icon:hover {
+  filter: invert(0.2);
+}
+
+.find,
+.spin {
+  left: 11px;
+  top: 11px;
+}
+
+.enter {
   right: 11px;
   top: 11px;
 }
 
-.spin,
-.enter {
-  left: 11px;
-  top: 11px;
+.find {
+  background: url(../../assets/icons/find.svg) no-repeat center center/cover;
 }
 
 .spin {

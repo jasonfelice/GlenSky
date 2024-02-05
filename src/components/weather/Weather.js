@@ -28,7 +28,8 @@ const Weather = ({ type }) => {
   const [selectedTab, setSelectedTab] = useState('temprature');
 
   useEffect(() => {
-    dispatch(getWeather(type, city));
+    // // Type checks the type of search by coordinates or name
+    dispatch(getWeather({type, city}));
     
   }, [dispatch, type, city]);
 
@@ -49,6 +50,7 @@ const Weather = ({ type }) => {
             </div>
           </div>
           <div className={Styles.description}>
+            <p>{weatherState.weather.location}</p>
             <p>{Utils.convertDate(selectedTime.dt_txt.slice(0, 10))}</p>
             <p>{`${selectedTime.weather[0].main} | ${selectedTime.weather[0].description}`}</p>
           </div>
@@ -93,8 +95,8 @@ const Weather = ({ type }) => {
                 className={Styles.daySelect}
               >
                 <span>{Utils.getDay(day)}</span>
-                <img src={`https://openweathermap.org/img/wn/${data[day][0].weather[0].icon}@4x.png`} width={75} height={75} alt="Rain" className={Styles.dayIcon} />
-                <p><span style={{ color: '#fff' }}>{convertTemp(data[day][0].main.temp_max)}°</span><span>{convertTemp(data[day][0].main.temp_min)}°</span></p>
+                <img src={`https://openweathermap.org/img/wn/${data[day][Math.floor(data[day].length/2)].weather[0].icon}@4x.png`} width={75} height={75} alt="Rain" className={Styles.dayIcon} />
+                <p><span style={{ color: '#fff' }}>{convertTemp(data[day][Math.floor(data[day].length/2)].main.temp_max)}°</span><span>{convertTemp(data[day][0].main.temp_min)}°</span></p>
               </div>
             );
           })

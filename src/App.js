@@ -13,6 +13,7 @@ function App() {
         <main>
           <Routes>
             <Route path='/' element={<Splash date={date} />} />
+            {/* type prop checks the type of search by coordinates or name */}
             <Route path='/weather/cords/:city' element={<Weather type={'cords'} />} />
             <Route path='/weather/name/:city' element={<Weather type={'name'} />} />
           </Routes>

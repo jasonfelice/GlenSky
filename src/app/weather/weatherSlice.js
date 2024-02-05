@@ -2,7 +2,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const OPEN_KEY = process.env.REACT_APP_OPEN_KEY
-const URL = `https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=${OPEN_KEY}`;
 
 const initialState = {
   weather: {},
@@ -15,7 +14,23 @@ const initialState = {
 
 export const getWeather = createAsyncThunk(
   'weather/getWeather',
-  async () => {
+  async ({type, city}) => {
+    let URL;
+    // Type checks the type of search by coordinates or name
+    switch (type) {
+      case 'cords':
+        const cords = city.split(',');
+        // Add cordinates to api url [0] is lat, [1] is long.
+        URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${cords[0]}&lon=${cords[1]}&appid=${OPEN_KEY}`;
+      break;
+      case 'name':
+        // Add city name from input to the url for direct search
+        URL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${OPEN_KEY}`;
+      break;
+      default:
+        URL = '';
+      break;
+    }
     try {
       const response = await axios.get(URL);
       return response.data;
@@ -25,6 +40,7 @@ export const getWeather = createAsyncThunk(
   },
 );
 
+// Reformat weather data and organize by date
 const groupDays = (data) => {
   const groupedDays = {};
   data.forEach((item) => {
@@ -41,11 +57,13 @@ const weatherSlice = createSlice({
   name: 'weather',
   initialState,
   reducers: {
+    // Manage selected weekday
     setSelectedDay: (state, action) => {
       const selectedDay  = action.payload;
       state.selectedTime = state.weather.list[selectedDay][0];
       state.selectedData = state.weather.list[selectedDay];
     },
+    // Manage selected Time
     setSelectedTime: (state, action) => {
       const selectedTime = action.payload;
       state.selectedTime = selectedTime;
@@ -64,6 +82,7 @@ const weatherSlice = createSlice({
         };
         state.selectedDay = Object.keys(state.weather.list)[0];
         state.selectedTime = state.weather.list[state.selectedDay][0];
+        // Data of selected day
         state.selectedData = state.weather.list[state.selectedDay];
         state.status = 'fetched';
       })

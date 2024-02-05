@@ -8,7 +8,7 @@ const Cities = ({ cities }) => {
 
   const getCords = async (id) => {
     const response = await axios.get(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${id}&key=${G_KEY}`);
-    return `${response.data.result.geometry.location.lat}-${response.data.result.geometry.location.lng}`;
+    return `${response.data.result.geometry.location.lat},${response.data.result.geometry.location.lng}`;
   };
   return (
     <ul className={Styles.cities}>

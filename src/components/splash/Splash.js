@@ -41,6 +41,15 @@ const Splash = ({ date }) => {
     }
   };
 
+  // Search by getting device coordinates
+  const handleTarget = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const {latitude, longitude} = position.coords;
+      navigate(`/weather/cords/${latitude},${longitude}`)
+    });
+  };
+  
+
   useEffect(() => {
     // Attach the event listener on mount
     document.addEventListener('mousedown', handleFormBlur);
@@ -76,7 +85,8 @@ const Splash = ({ date }) => {
           <i onClick={() => dispatch(getCities(input))} className={`${Styles.icon} ${Styles.find}`} />
          {toggleCities && <Cities cities={cities.list} />}
         </form>
-        <i className={Styles.target} />
+        {/* Search weather with device location */}
+        <i onClick={handleTarget} className={Styles.target} />
       </div>
     </div>
   )

@@ -35,7 +35,7 @@ export const getWeather = createAsyncThunk(
       const response = await axios.get(URL);
       return response.data;
     } catch (error) {
-      return error.message;
+      throw new Error(error.message);
     }
   },
 );
@@ -75,20 +75,20 @@ const weatherSlice = createSlice({
         state.status = 'pending';
       })
       .addCase(getWeather.fulfilled, (state, action) => {
-        state.weather = {
-          location: `${action.payload.city.name}, ${action.payload.city.country}`,
-          timezone: action.payload.city.timezone,
-          message: action.payload.message,
-          list: groupDays(action.payload.list),
-        };
-        state.selectedDay = Object.keys(state.weather.list)[0];
-        state.selectedTime = state.weather.list[state.selectedDay][0];
-        // Data of selected day
-        state.selectedData = state.weather.list[state.selectedDay];
-        state.status = 'fetched';
+          state.weather = {
+            location: `${action.payload.city.name}, ${action.payload.city.country}`,
+            timezone: action.payload.city.timezone,
+            message: action.payload.message,
+            list: groupDays(action.payload.list),
+          };
+          state.selectedDay = Object.keys(state.weather.list)[0];
+          state.selectedTime = state.weather.list[state.selectedDay][0];
+          // Data of selected day
+          state.selectedData = state.weather.list[state.selectedDay];
+          state.status = 'fetched';
       })
       .addCase(getWeather.rejected, (state, action) => {
-        state.error = action.payload;
+        state.error = action.error.message;
         state.status = 'failed';
       })
   },

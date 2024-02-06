@@ -77,6 +77,7 @@ const weatherSlice = createSlice({
       .addCase(getWeather.fulfilled, (state, action) => {
         state.weather = {
           location: `${action.payload.city.name}, ${action.payload.city.country}`,
+          timezone: action.payload.city.timezone,
           message: action.payload.message,
           list: groupDays(action.payload.list),
         };
@@ -87,6 +88,7 @@ const weatherSlice = createSlice({
         state.status = 'fetched';
       })
       .addCase(getWeather.rejected, (state, action) => {
+        state.error = action.payload;
         state.status = 'failed';
       })
   },

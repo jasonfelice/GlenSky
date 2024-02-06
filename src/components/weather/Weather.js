@@ -27,6 +27,13 @@ const Weather = ({ type }) => {
   // Set temperature tab as default
   const [selectedTab, setSelectedTab] = useState('temprature');
 
+  // Convert time to location's timezone
+  const convertTimezone = (dt_txt, offset) => {
+    const date = new Date(dt_txt + "Z"); // Append 'Z' to indicate UTC
+    const localTimestamp = new Date(date.getTime() + offset * 1000);
+    return localTimestamp.toISOString().slice(0, 19).replace('T', ' ');
+  };
+
   useEffect(() => {
     // // Type checks the type of search by coordinates or name
     dispatch(getWeather({type, city}));
@@ -73,7 +80,7 @@ const Weather = ({ type }) => {
       <div className={Styles.timeWrapper}>
           {
             selectedData.map((each) => (
-              <span onClick={() => dispatch(setSelectedTime(each))} key={each.dt}>{Utils.getHour(each.dt_txt)}</span>
+              <span onClick={() => dispatch(setSelectedTime(each))} key={each.dt}>{Utils.getHour(convertTimezone(each.dt_txt, weatherState.weather.timezone))}</span>
             ))
           }
         </div>

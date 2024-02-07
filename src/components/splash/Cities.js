@@ -16,7 +16,13 @@ const Cities = ({ cities }) => {
           (Array.isArray(cities)) && cities.map((city) => (
             <li
               // Get weather with coordinates
-              onClick={() => getCords(city.place_id).then((cords) => navigate(`/weather/cords/${cords}`))}
+              onClick={(e) => {
+                e.target.classList.add(Styles.loading);
+                getCords(city.place_id).then((cords) => {
+                  e.target.classList.remove(Styles.loading);
+                  navigate(`/weather/cords/${cords}`);
+                });
+              }}
               key={city.place_id}
            >{city.description}</li>
           ))

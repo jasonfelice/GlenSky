@@ -37,3 +37,17 @@
   background: #fff;
   cursor: pointer;
 }
+
+.loading {
+  animation: cityLoading linear 0.2s alternate infinite;
+}
+
+@keyframes cityLoading {
+  0% {
+    background: #fff;
+  }
+  100% {
+    background: #d6d6d656;
+  }
+}
+

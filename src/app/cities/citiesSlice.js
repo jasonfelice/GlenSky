@@ -14,7 +14,7 @@ export const getCities = createAsyncThunk('weather/cities', async (input) => {
         const response = await axios.get(`https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${input}&types=geocode&key=${G_KEY}`);
         return response.data.predictions;
     } catch (error) {
-        return error.message;
+        throw new Error(error);
     }
 });
 
@@ -31,7 +31,7 @@ const citiesSlice = createSlice({
         state.status = 'idle';
       })
       .addCase(getCities.rejected, (state, action) => {
-        state.error = action.payload
+        state.error = action.error.message;
         state.status =  'failed';
       })
   },

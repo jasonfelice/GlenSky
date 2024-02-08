@@ -1,0 +1,57 @@
+.loading {
+  display: block;
+  background: url(../../assets//loadingVectors/sun.svg) no-repeat center center/cover;
+  width: 100px;
+  height: 100px;
+  animation: loading 4s linear infinite;
+}
+
+@keyframes loading {
+  0% {
+    background: url(../../assets//loadingVectors/sun.svg) no-repeat center center/cover;
+  }
+
+  10% {
+    background: url(../../assets//loadingVectors/sun.svg) no-repeat center center/cover;
+    opacity: 0;
+  }
+
+  11% {
+    background: url(../../assets//loadingVectors/rain.svg) no-repeat center center/cover;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  35% {
+    background: url(../../assets//loadingVectors/rain.svg) no-repeat center center/cover;
+    opacity: 0;
+  }
+
+  36% {
+    background: url(../../assets//loadingVectors/thunder.svg) no-repeat center center/cover;
+  }
+
+  45% {
+    opacity: 1;
+  }
+
+  55% {
+    background: url(../../assets//loadingVectors/thunder.svg) no-repeat center center/cover;
+    opacity: 0;
+  }
+
+  56% {
+    background: url(../../assets//loadingVectors/snow.svg) no-repeat center center/cover
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 0;
+    background: url(../../assets//loadingVectors/sun.svg) no-repeat center center/cover;
+  }
+}

@@ -1,25 +1,20 @@
 import { Route, Routes } from 'react-router-dom';
-import Utils from './utils/Utils';
+import { useSelector } from 'react-redux';
 import './App.css';
+import Utils from './utils/Utils';
 import Weather from './components/weather/Weather';
 import Splash from './components/splash/Splash';
 import Alert from './components/alert/Alert';
-import { useEffect, useState } from 'react';
 
 function App() {
-  const [alert, setAlert] = useState(true);
+  const citiesStatus = useSelector((state) => state.cities.status);
+  const citiesMessage = useSelector((state) => state.cities.error);
   const date = new Date();
-
-  useEffect(() => {
-    return () => {
-      setTimeout(() => setAlert(false), 3000);
-    };
-  },[alert]);
 
   return (
     <div className="App">
-      {alert && <Alert />}
       <div className="rectangle">
+      {(citiesStatus === 'failed') && <Alert message={citiesMessage} />}
         <span className='date'>{Utils.getCurrentDate(date)}</span>
         <main>
           <Routes>

@@ -21,6 +21,16 @@ export const getCities = createAsyncThunk('weather/cities', async (input) => {
 const citiesSlice = createSlice({
   name: 'cities',
   initialState,
+  reducers: {
+    setError: (state, action) => {
+      state.status = 'failed';
+      state.error = action.payload;
+    },
+    setPending: (state, action) => {
+      state.status = 'pending';
+      state.error = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getCities.pending, (state, action) => {
@@ -37,5 +47,5 @@ const citiesSlice = createSlice({
   },
 });
 
+export const { setError, setPending } = citiesSlice.actions;
 export default citiesSlice.reducer;
-

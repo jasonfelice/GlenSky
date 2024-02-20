@@ -11,7 +11,7 @@ const initialState = {
 
 export const getCities = createAsyncThunk('weather/cities', async (input) => {
     try {
-        const response = await axios.get(`https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${input}&types=geocode&key=${G_KEY}`);
+        const response = await axios.get(`https://googleplaces.netlify.app/.netlify/functions/server/places?input=${input}&types=geocode&key=${G_KEY}`);
         return response.data.predictions;
     } catch (error) {
         throw new Error(error);

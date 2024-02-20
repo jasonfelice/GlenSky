@@ -10,7 +10,7 @@ const Cities = ({ cities }) => {
   const G_KEY = process.env.REACT_APP_G_KEY;
 
   const getCords = async (id) => {
-    const response = await axios.get(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${id}&key=${G_KEY}`);
+    const response = await axios.get(`https://googleplaces.netlify.app/.netlify/functions/server/details?place_id=${id}&key=${G_KEY}`);
     return `${response.data.result.geometry.location.lat},${response.data.result.geometry.location.lng}`;
   };
   return (

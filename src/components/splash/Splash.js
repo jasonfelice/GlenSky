@@ -48,7 +48,6 @@ const Splash = ({ date }) => {
       navigate(`/weather/cords/${latitude},${longitude}`)
     });
   };
-  
 
   useEffect(() => {
     // Attach the event listener on mount

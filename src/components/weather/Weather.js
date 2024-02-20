@@ -43,7 +43,9 @@ const Weather = ({ type }) => {
 
   return (
     <div className={Styles.weather}>
-      <Loading />
+      {
+        (weatherState.status === 'pending') &&  (<Loading />)
+      }
       {
         (weatherState.status === 'fetched') && (
           <>

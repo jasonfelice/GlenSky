@@ -1,10 +1,13 @@
 .loading {
   display: block;
   background: url(../../assets//loadingVectors/sun.svg) no-repeat center center/cover;
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  margin-top: 5rem;
   animation: loading 4s linear infinite;
   opacity: 0;
+  filter: brightness(10);
 }
 
 @keyframes loading {

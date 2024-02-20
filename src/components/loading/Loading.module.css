@@ -4,6 +4,7 @@
   width: 100px;
   height: 100px;
   animation: loading 4s linear infinite;
+  opacity: 0;
 }
 
 @keyframes loading {
@@ -11,47 +12,51 @@
     background: url(../../assets//loadingVectors/sun.svg) no-repeat center center/cover;
   }
 
-  10% {
-    background: url(../../assets//loadingVectors/sun.svg) no-repeat center center/cover;
-    opacity: 0;
-  }
-
-  11% {
-    background: url(../../assets//loadingVectors/rain.svg) no-repeat center center/cover;
+  12% {
+    opacity: 1;
   }
 
   25% {
+    background: url(../../assets//loadingVectors/sun.svg) no-repeat center center/cover;
+    opacity: 0;
+  }
+
+  26% {
+    background: url(../../assets//loadingVectors/rain.svg) no-repeat center center/cover;
+  }
+
+  37% {
     opacity: 1;
   }
 
-  35% {
+  48% {
     background: url(../../assets//loadingVectors/rain.svg) no-repeat center center/cover;
     opacity: 0;
   }
 
-  36% {
+  49% {
     background: url(../../assets//loadingVectors/thunder.svg) no-repeat center center/cover;
   }
 
-  45% {
+  61% {
     opacity: 1;
   }
 
-  55% {
+  72% {
     background: url(../../assets//loadingVectors/thunder.svg) no-repeat center center/cover;
     opacity: 0;
   }
 
-  56% {
+  73% {
     background: url(../../assets//loadingVectors/snow.svg) no-repeat center center/cover
   }
 
-  65% {
+  85% {
     opacity: 1;
   }
 
-  75% {
+  100% {
+    background: url(../../assets//loadingVectors/snow.svg) no-repeat center center/cover;
     opacity: 0;
-    background: url(../../assets//loadingVectors/sun.svg) no-repeat center center/cover;
   }
 }

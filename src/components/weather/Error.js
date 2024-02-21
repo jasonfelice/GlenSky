@@ -9,8 +9,9 @@ const Error = () => {
     flexDirection: 'column',
     alignItems: 'center',
     gap: '1rem',
-    color: 'red',
-    fontSize: '1.5rem'
+    fontWeight: '600',
+    color: '#fff',
+    fontSize: '1.4rem'
   };
 
   const vectorStyle = {

@@ -1,3 +1,15 @@
+.home {
+  background: url(../../assets/home.svg) no-repeat center center/cover;
+  display: block;
+  width: 50px;
+  height: 50px;
+  filter: invert(1) brightness(10);
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+}
+
 /* Weather data wrapper  */
 .weather {
   width: 60%;

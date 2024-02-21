@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Styles from './Weather.module.css';
 import TempChart from './charts/TempChart';
 import PreChart from './charts/PreChart';
@@ -14,6 +14,7 @@ import { setSelectedTime, setSelectedDay } from '../../app/weather/weatherSlice'
 
 const Weather = ({ type }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { city } = useParams();
   const weatherState = (useSelector((state) => state.weather));
 
@@ -44,6 +45,8 @@ const Weather = ({ type }) => {
 
   return (
     <div className={Styles.weather}>
+      {/* Home Icon */}
+      <i onClick={() => navigate('/')} className={Styles.home} />
       {
         (weatherState.status === 'failed' && (<Error />))
       }

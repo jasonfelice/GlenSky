@@ -7,6 +7,7 @@ import PreChart from './charts/PreChart';
 import HumidChart from './charts/HumidChart';
 import WindChart from './charts/WindChart';
 import Loading from '../loading/Loading';
+import Error from './Error';
 import Utils from '../../utils/Utils';
 import { getWeather } from '../../app/weather/weatherSlice';
 import { setSelectedTime, setSelectedDay } from '../../app/weather/weatherSlice';
@@ -43,6 +44,9 @@ const Weather = ({ type }) => {
 
   return (
     <div className={Styles.weather}>
+      {
+        (weatherState.status === 'failed' && (<Error />))
+      }
       {
         (weatherState.status === 'pending') &&  (<Loading />)
       }

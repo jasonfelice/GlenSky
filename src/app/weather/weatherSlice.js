@@ -85,7 +85,7 @@ const weatherSlice = createSlice({
           state.selectedTime = state.weather.list[state.selectedDay][0];
           // Data of selected day
           state.selectedData = state.weather.list[state.selectedDay];
-          state.status = 'fetched';
+          state.status = 'failed';
       })
       .addCase(getWeather.rejected, (state, action) => {
         state.error = action.error.message;

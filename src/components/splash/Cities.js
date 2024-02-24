@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import Styles from './Cities.module.css';
-import { setError, setPending } from '../../app/cities/citiesSlice';
+import { setError } from '../../app/cities/citiesSlice';
 
 const Cities = ({ cities }) => {
   const navigate = useNavigate();
@@ -20,7 +20,6 @@ const Cities = ({ cities }) => {
             <li
               // Get weather with coordinates
               onClick={(e) => {
-                dispatch(setPending());
                 e.target.classList.add(Styles.loading);
                 getCords(city.place_id).then((cords) => {
                   e.target.classList.remove(Styles.loading);

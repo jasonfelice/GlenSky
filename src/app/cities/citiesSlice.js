@@ -26,10 +26,6 @@ const citiesSlice = createSlice({
       state.status = 'failed';
       state.error = action.payload;
     },
-    setPending: (state, action) => {
-      state.status = 'pending';
-      state.error = null;
-    },
   },
   extraReducers: (builder) => {
     builder
@@ -47,5 +43,5 @@ const citiesSlice = createSlice({
   },
 });
 
-export const { setError, setPending } = citiesSlice.actions;
+export const { setError } = citiesSlice.actions;
 export default citiesSlice.reducer;

@@ -26,6 +26,7 @@
   height: 30vw;
   max-width: 1100px;
   max-height: 700px;
+  min-height: 550px;
   border-radius: 25px;
   padding: 20px 10px;
   background: var(--rectPri);
@@ -43,20 +44,23 @@
 @media only screen and (max-width: 1700px) {
   .rectangle {
     width: 60vw;
-    height: 33vw;
   }
 }
 
 @media only screen and (max-width: 1400px) {
   .rectangle {
     width: 70vw;
-    height: 36vw;
   }
 }
 
 @media only screen and (max-width: 1200px) {
   .rectangle {
     width: 80vw;
-    height: auto;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .rectangle {
+    min-width: 700px;
   }
 }

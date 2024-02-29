@@ -45,8 +45,8 @@ const Weather = ({ type }) => {
 
   return (
     <div className={Styles.weather}>
-      {/* Home Icon */}
-      <i onClick={() => navigate('/')} className={Styles.home} />
+      {/* Back Icon */}
+      <i onClick={() => navigate('/')} className={Styles.back} />
       {
         (weatherState.status === 'failed' && (<Error />))
       }

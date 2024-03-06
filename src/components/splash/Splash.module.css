@@ -1,0 +1,127 @@
+.splash {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.vectorWrapper {
+  margin: auto;
+  padding: 5px;
+}
+
+.splashVector {
+  height: 230px;
+  width: 230px;
+  filter: invert(1) brightness(2);
+  transform: translate(0, 300px);
+  opacity: 0;
+  animation: riseUp 1s forwards;
+  user-select: none;
+}
+
+@keyframes riseUp {
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.citySelect {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inputWrapper {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  text-align: center;
+  padding: 15px 150px;
+  border-radius: 10px;
+  color: var(--greyText);
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.inputWrapper p {
+  border-right: 1px solid black;
+  width: 100%;
+  white-space: nowrap;
+  user-select: none;
+  overflow: hidden;
+  animation:
+    typing 2s ease-out infinite,
+    cursor 0.4s step-end infinite alternate;
+}
+
+.inputWrapper input {
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  max-width: 211px;
+}
+
+/* Blinking cursor  */
+@keyframes cursor {
+  50% { border-color: transparent;}
+}
+
+/* Typing animation */
+@keyframes typing {
+  from { width: 0; }
+}
+
+.target {
+  display: block;
+  background: url(../../assets/icons/target.svg) no-repeat center center/cover;
+  width: 25px;
+  height: 25px;
+  filter: invert(1);
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+
+.target:active {
+  filter: invert(0);
+}
+
+/* Icons in input form */
+
+.icon {
+  position: absolute;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  filter: invert(0.4);
+  transition: all 0.2s ease-out;
+}
+
+.icon:hover {
+  filter: invert(0.2);
+}
+
+.find,
+.spin {
+  left: 11px;
+  top: 11px;
+}
+
+.enter {
+  right: 11px;
+  top: 11px;
+}
+
+.find {
+  background: url(../../assets/icons/find.svg) no-repeat center center/cover;
+}
+
+.spin {
+  background: url(../../assets/icons/spin.svg) no-repeat center center/cover;
+}
+
+.enter {
+  background: url(../../assets/icons/return.svg) no-repeat center center/cover;
+}

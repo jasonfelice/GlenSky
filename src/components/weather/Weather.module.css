@@ -1,0 +1,152 @@
+.back {
+  background: url(../../assets/back.svg) no-repeat center center/cover;
+  display: block;
+  width: 50px;
+  height: 50px;
+  filter: invert(1) brightness(10);
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+}
+
+/* Weather data wrapper  */
+.weather {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 68px;
+  color: var(--greyText);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* headline icon style  */
+.weatherIcon {
+  background-size: 100px !important;
+  display: block;
+  width: 80px;
+  height: 80px;
+}
+
+.weatherInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.headTemprature {
+  display: flex;
+  align-items: center;
+}
+
+.averageTemp {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.description {
+  font-size: 0.85rem;
+}
+
+.tempSelector {
+  font-size: 1.2rem;
+  align-self: start;
+}
+
+.tempSelector span {
+  cursor: pointer;
+}
+
+/* Top right headline description */
+.headinfoRight {
+  font-size: 0.8rem;
+  text-align: right;
+}
+
+/* Chart selector  */
+.chartTabs {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 1.1rem;
+  opacity: 0.8;
+  user-select: none;
+}
+
+.chartTabs div {
+  cursor: pointer;
+}
+
+/* Hover tab bar */
+.chartTabs div::after {
+  content: '';
+  display: block;
+  width: 10%;
+  margin: auto;
+  height: 1px;
+  background: transparent;
+  transition: all 0.2s ease-out;
+}
+
+.chartTabs div:hover::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--hoverOrange);
+}
+
+/* Selected tab bar */
+.selectedTab::after {
+  content: '';
+  display: block;
+  width: 100% !important;
+  height: 1px;
+  background: var(--slectedOrange) !important; 
+}
+
+.chartTabs span {
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+.chartWrapper {
+  height: 100px;
+}
+
+/* Time Selector */
+.timeWrapper {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  font-weight: 500;
+  user-select: none;
+}
+
+.timeWrapper span {
+  cursor: pointer;
+}
+
+/* Days Selector */
+.daysWrapper {
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.daySelect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.daySelect span {
+  transform: translateY(12px);
+}
+
+.daySelect p {
+  transform: translateY(-12px);
+}

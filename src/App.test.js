@@ -1,8 +1,14 @@
-import { render, screen } from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import getCurrentDate from './utils/getCurrentDate';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('if the date is rendered', () => {
+  render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+    );
+  const date = screen.queryByText(getCurrentDate(new Date()));
+  expect(date).toBeVisible();
 });

@@ -1,0 +1,53 @@
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--lightGrey);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--greyText);
+}
+
+.cities {
+  background-color: var(--lightGrey);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 53px;
+  border-radius: 10px;
+  height: 180px;
+  z-index: 0;
+  list-style: none;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cities li {
+  padding: 10px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.loading {
+  animation: cityLoading linear 0.2s alternate infinite;
+}
+
+@keyframes cityLoading {
+  0% {
+    background: #fff;
+  }
+  100% {
+    background: #d6d6d656;
+  }
+}
+

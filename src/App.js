@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import './App.css';
+import Utils from './utils/Utils';
+import Weather from './components/weather/Weather';
+import Splash from './components/splash/Splash';
+import Alert from './components/alert/Alert';
 
 function App() {
+  const citiesStatus = useSelector((state) => state.cities.status);
+  const citiesMessage = useSelector((state) => state.cities.error);
+  const date = new Date();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="rectangle">
+      {(citiesStatus === 'failed') && <Alert message={citiesMessage} />}
+        <span className='date'>{Utils.getCurrentDate(date)}</span>
+        <main>
+          <Routes>
+            <Route path='/' element={<Splash date={date} />} />
+            {/* type prop checks the type of search by coordinates or name */}
+            <Route path='/weather/cords/:city' element={<Weather type={'cords'} />} />
+            <Route path='/weather/name/:city' element={<Weather type={'name'} />} />
+          </Routes>
+        </main>
+      </div>
     </div>
   );
 }

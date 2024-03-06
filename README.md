@@ -18,7 +18,6 @@
 <!-- PROJECT DESCRIPTION -->
 
 # 📖 GlenSky <a name="about-project"></a>
-
 GlenSky is a user-friendly weather application designed to provide accurate and up-to-date weather information for any city around the globe. Whether you want to plan your outdoor activities, check the weather conditions for your travel destination, or simply stay informed about the current weather, WeatherApp has got you covered.
 
 
@@ -53,8 +52,8 @@ GlenSky is a user-friendly weather application designed to provide accurate and 
 To get started with WeatherApp, simply clone this repository to your local machine and follow the instructions in the README.md file.
 
 ```
-git clone https://github.com/your-username/weather-app.git
-cd weather-app
+git clone https://github.com/jasonfelice/GlenSky.git
+cd GlenSky
 npm install
 npm start
 ```

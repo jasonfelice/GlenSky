@@ -42,7 +42,7 @@ GlenSky is a user-friendly weather application designed to provide accurate and 
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](#)
+- [Live Demo Link](https://glensky.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

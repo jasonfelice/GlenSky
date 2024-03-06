@@ -7,6 +7,8 @@
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
   - [🚀 Live Demo ](#-live-demo-)
+  - [Getting Started](#getting-started)
+    - [How to Use](#how-to-use)
   - [👥 Authors ](#-authors-)
     - [👤 **Jake Felice**](#-jake-felice)
   - [🤝 Contributing ](#-contributing-)
@@ -46,6 +48,22 @@ GlenSky is a user-friendly weather application designed to provide accurate and 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
+
+## Getting Started
+To get started with WeatherApp, simply clone this repository to your local machine and follow the instructions in the README.md file.
+
+```
+git clone https://github.com/your-username/weather-app.git
+cd weather-app
+npm install
+npm start
+```
+
+### How to Use
+- Open the WeatherApp in your web browser.
+- Enter the desired city name in the search bar or allow the app to access your device's location.
+- View the 5-day weather forecast along with interactive charts for temperature, precipitation, humidity, and winds.
+- Plan your activities accordingly based on the weather forecast provided.
 
 <!-- AUTHORS -->
 

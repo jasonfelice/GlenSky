@@ -3,7 +3,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 Weather by Jake Felice ](#-weather-by-jake-felice-)
+- [📖 GlenSky ](#-glensky-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
   - [🚀 Live Demo ](#-live-demo-)
@@ -15,15 +15,18 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Weather by Jake Felice <a name="about-project"></a>
+# 📖 GlenSky <a name="about-project"></a>
 
-> Weather
+GlenSky is a user-friendly weather application designed to provide accurate and up-to-date weather information for any city around the globe. Whether you want to plan your outdoor activities, check the weather conditions for your travel destination, or simply stay informed about the current weather, WeatherApp has got you covered.
+
 
 ## 🛠 Built With <a name="built-with"></a>
 
+> Powered by OpenWeather and Google Places API
+
 ### Tech Stack <a name="tech-stack"></a>
 
-> HTML, CSS, JavaScript, and React
+> HTML, CSS, JavaScript, React, Redux
 
 <details>
   <summary>Client</summary>
@@ -38,7 +41,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://jakefelice.me/)
+- [Live Demo Link](#)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -51,8 +54,8 @@
 ### 👤 **Jake Felice**
 
 - GitHub: [@jasonfelice](https://github.com/jasonfelice)
-- Twitter: [@jasonfelice0](https://twitter.com/jasonfelice0)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/jason-felice-11a5a622b/)
+- Twitter: [@jasonfelice0](https://twitter.com/jake_felice)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/jake-felice/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -80,7 +83,8 @@ If you like this project, dont' forget to star it and follow me on GitHub.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-- <a target="_blank" href="https://icons8.com/icon/39853/javascript">JavaScript</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
-on Freepik
+- Vectors and icons by <a href="https://www.figma.com/community/file/1166831539721848736?ref=svgrepo.com" target="_blank">Solar Icons</a> in CC Attribution License via <a href="https://www.svgrepo.com/" target="_blank">SVG Repo</a>
+
+- Charts by <a href="https://www.chartjs.org/" target="_blank">ChartJS</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

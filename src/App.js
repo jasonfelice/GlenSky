@@ -5,6 +5,7 @@ import Utils from './utils/Utils';
 import Weather from './components/weather/Weather';
 import Splash from './components/splash/Splash';
 import Alert from './components/alert/Alert';
+import Header from './components/header/Header';
 
 function App() {
   const citiesStatus = useSelector((state) => state.cities.status);
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <div className="rectangle">
       {(citiesStatus === 'failed') && <Alert message={citiesMessage} />}
         <span className='date'>{Utils.getCurrentDate(date)}</span>

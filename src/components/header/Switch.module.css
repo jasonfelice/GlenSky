@@ -1,0 +1,21 @@
+.switch {
+    width: 40px;
+    height: 20px;
+    background-color: #eee;
+    border-radius: 30%;
+    position: relative;
+  }
+  
+  .switch i {
+    display: block;
+    width: 15px;
+    height: 20px;
+    background-color: #aaa;
+    border-radius: 30%;
+    transition: all 0.2s ease-out;
+  }
+  
+  .switch i:hover {
+    background-color: #bbb;
+  }
+  

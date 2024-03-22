@@ -4,7 +4,7 @@ import Styles from './Header.module.css';
 const Header = () => {
   return (
     <header className={Styles.header}>
-        <span>GlenSky</span>
+        <h2><a href="/">GlenSky</a></h2>
         <Switch />
     </header>
   );

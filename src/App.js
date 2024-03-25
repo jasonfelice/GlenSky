@@ -6,6 +6,7 @@ import Weather from './components/weather/Weather';
 import Splash from './components/splash/Splash';
 import Alert from './components/alert/Alert';
 import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 
 function App() {
   const citiesStatus = useSelector((state) => state.cities.status);
@@ -27,6 +28,7 @@ function App() {
           </Routes>
         </main>
       </div>
+      <Footer />
     </div>
   );
 }

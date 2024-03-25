@@ -1,0 +1,24 @@
+.footer {
+  padding: 10px 20px;
+}
+
+.icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+
+.github {
+  background: url(../../assets/github.svg) no-repeat center center/cover;
+  filter: invert(0.2);
+}
+
+.openWeather {
+  background: url(../../assets/openweather.png) no-repeat center center/cover;
+}
+
+.footerInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

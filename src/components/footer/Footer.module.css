@@ -1,5 +1,6 @@
 .footer {
   padding: 10px 20px;
+  min-width: 550px;
 }
 
 .icon {
@@ -20,5 +21,16 @@
 .footerInfo {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.poweredBy {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.poweredBy a {
+  display: flex;
   align-items: center;
 }

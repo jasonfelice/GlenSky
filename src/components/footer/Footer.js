@@ -10,13 +10,17 @@ const Footer = () => {
         </a>
       </div>
       <div className={Styles.footerInfo}>
-        <span>Powered By:
-            {' '}
-        <a rel="noreferrer" target="_blank" href="https://openweathermap.org/api">
-            OpenWeather
-            <i className={`${Styles.icon} ${Styles.openWeather}`} />
-        </a>
-        </span>
+        <div className={Styles.poweredBy}>
+          <span>Powered By:</span>
+          <a rel="noreferrer" target="_blank" href="https://openweathermap.org/api">
+              OpenWeather
+              <i className={`${Styles.icon} ${Styles.openWeather}`} />
+          </a>
+          <a rel="noreferrer" target="_blank" href="https://developers.google.com/maps/documentation/places/web-service/overview">
+              Google Places API
+              <i className={`${Styles.icon} ${Styles.openWeather}`} />
+          </a>
+        </div>
       </div>
     </footer>
   );

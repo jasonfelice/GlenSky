@@ -6,13 +6,15 @@
 
 .icon {
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
 
 .github {
   background: url(../../assets/github.svg) no-repeat center center/cover;
   filter: invert(0.2);
+  width: 30px;
+  height: 30px;
 }
 
 .openWeather {
@@ -30,10 +32,12 @@
 }
 
 .poweredBy {
+  margin-top: 10px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 5px;
+  font-size: 12px;
 }
 
 .poweredBy a {

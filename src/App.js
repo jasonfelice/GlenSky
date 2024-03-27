@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './App.css';
+import Dark from './theme/Dark.module.css';
+import Light from './theme/Light.module.css';
 import Utils from './utils/Utils';
 import Weather from './components/weather/Weather';
 import Splash from './components/splash/Splash';
@@ -9,12 +12,13 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 
 function App() {
+  const [Styles, setStyles] = useState(Light);
   const citiesStatus = useSelector((state) => state.cities.status);
   const citiesMessage = useSelector((state) => state.cities.error);
   const date = new Date();
 
   return (
-    <div className="App">
+    <div className={`${Styles.theme} App`}>
       <Header />
       <div className="rectangle">
       {(citiesStatus === 'failed') && <Alert message={citiesMessage} />}

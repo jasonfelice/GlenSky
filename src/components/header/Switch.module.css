@@ -60,3 +60,19 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  filter: invert(0.45);
+  margin-right: 2px;
+}
+
+.sun {
+  background: url(../../assets/icons/sun.svg) no-repeat center center/cover;
+}
+
+.moon {
+  background: url(../../assets/icons/moon.svg) no-repeat center center/cover;
+}

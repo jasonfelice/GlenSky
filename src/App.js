@@ -12,14 +12,17 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 
 function App() {
-  const [Styles, setStyles] = useState(Light);
+  // Set theme state
+  const [theme, setTheme] = useState('light');
+  // Check theme state to assign theme to Styles object
+  const Styles = (theme === 'light') ? Light : Dark;
   const citiesStatus = useSelector((state) => state.cities.status);
   const citiesMessage = useSelector((state) => state.cities.error);
   const date = new Date();
 
   return (
     <div className={`${Styles.theme} App`}>
-      <Header />
+      <Header theme={theme} setTheme={setTheme} />
       <div className="rectangle">
       {(citiesStatus === 'failed') && <Alert message={citiesMessage} />}
         <span className='date'>{Utils.getCurrentDate(date)}</span>

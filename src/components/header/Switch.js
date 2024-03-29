@@ -10,7 +10,7 @@ const Switch = ({ theme, setTheme }) => {
     
     {
       // Set sun or moon icon based on selected theme
-      (theme === 'light') ? (< i class={`${Style.icon} ${Style.sun}`} />) : (< i class={`${Style.icon} ${Style.moon}`} />)
+      (theme === 'light') ? (< i className={`${Style.icon} ${Style.sun}`} />) : (< i className={`${Style.icon} ${Style.moon}`} />)
     }
     <label className={Style.switch}>
       <input
@@ -19,7 +19,7 @@ const Switch = ({ theme, setTheme }) => {
         checked={(theme === 'dark')}
         type="checkbox"
       />
-      <span class={`${Style.round} ${Style.slider}`}></span>
+      <span className={`${Style.round} ${Style.slider}`}></span>
     </label>
   </div>
   );

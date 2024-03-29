@@ -4,6 +4,7 @@
   padding: 0;
   margin: 0;
   font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
 }
 
 .App {
@@ -19,7 +20,7 @@
   height: 30vw;
   max-width: 1100px;
   max-height: 700px;
-  min-height: 550px;
+  min-height: 600px;
   border-radius: 25px;
   padding: 20px 10px;
   background: var(--rectPri);

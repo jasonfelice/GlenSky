@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './App.css';
@@ -16,12 +16,16 @@ function App() {
   const [theme, setTheme] = useState('light');
   // Check theme state to assign theme to Styles object
   const Styles = (theme === 'light') ? Light : Dark;
+
+  useEffect(() => {
+    document.querySelector('body').className = Styles.theme;
+  }, [Styles, theme]);
   const citiesStatus = useSelector((state) => state.cities.status);
   const citiesMessage = useSelector((state) => state.cities.error);
   const date = new Date();
 
   return (
-    <div className={`${Styles.theme} App`}>
+    <div className="App">
       <Header theme={theme} setTheme={setTheme} />
       <div className="rectangle">
       {(citiesStatus === 'failed') && <Alert message={citiesMessage} />}

@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: var(--background);
+  background: linear-gradient(0.5turn, var(--background), #ffffff)
 }
 
 .App {
@@ -27,7 +27,7 @@ body {
   min-height: 600px;
   border-radius: 25px;
   padding: 20px 10px;
-  background: var(--rectPri);
+  background: linear-gradient(0.5turn, var(--rectPri), var(--rectSec) );
   color: #fff;
   box-shadow: 0 10px 20px #00000075;
 }

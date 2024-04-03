@@ -1,5 +1,6 @@
 .theme {
-  --background: #fff;
+  --backgroundPri: #b7cfd3;
+  --backgroundSec: #fff;
   --rectPri: #82c6cf;
   --rectSec: #b0c6ce;
   --greyText: #474747;

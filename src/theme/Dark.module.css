@@ -1,10 +1,10 @@
 .theme {
   --backgroundPri: #26272d;
-  --backgroundSec: #b7cfd3;
   --rectPri: #3a405a;
   --rectSec: #0d2c49;
   --greyText: #c2c2c2;
   --lightGrey: #f6f6f6;
   --slectedOrange: #ec6e4c;
   --hoverOrange: #e49781;
+  --icon: invert(0.8);
 }

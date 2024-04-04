@@ -2,6 +2,7 @@
   border-top: 1px solid grey;
   padding: 10px 20px;
   min-width: 700px;
+  color: var(--greyText);
 }
 
 .icon {
@@ -12,13 +13,14 @@
 
 .github {
   background: url(../../assets/github.svg) no-repeat center center/cover;
-  filter: invert(0.2);
+  filter: var(--icon);
   width: 30px;
   height: 30px;
 }
 
 .openWeather {
   background: url(../../assets/openweather.svg) no-repeat center center/cover;
+  filter: var(--icon);
 }
 
 .google {
@@ -43,6 +45,6 @@
 .poweredBy a {
   display: flex;
   align-items: center;
-  color: black;
+  color: var(--greyText);
   text-decoration: none;
 }

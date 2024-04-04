@@ -79,8 +79,11 @@ const Splash = ({ date }) => {
             dispatch(getCities(input));
           }}
           onClick={() => setInputFocus(true)}
+          onKeyDown={() => setInputFocus(true)}
           ref={wrapperRef} aria-label="form"
-          className={Styles.inputWrapper}>
+          className={Styles.inputWrapper}
+          tabIndex={0}
+        >
           { loading ?
             (<i className={`${Styles.icon} ${Styles.spin}`} />) :
             // Get weather with city name

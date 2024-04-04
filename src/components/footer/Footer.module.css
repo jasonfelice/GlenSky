@@ -1,0 +1,50 @@
+.footer {
+  border-top: 1px solid grey;
+  padding: 10px 20px;
+  min-width: 700px;
+  color: var(--greyText);
+}
+
+.icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.github {
+  background: url(../../assets/github.svg) no-repeat center center/cover;
+  filter: var(--icon);
+  width: 30px;
+  height: 30px;
+}
+
+.openWeather {
+  background: url(../../assets/openweather.svg) no-repeat center center/cover;
+  filter: var(--icon);
+}
+
+.google {
+  background: url(../../assets/google.svg) no-repeat center center/cover;
+}
+
+.footerInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.poweredBy {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: 12px;
+}
+
+.poweredBy a {
+  display: flex;
+  align-items: center;
+  color: var(--greyText);
+  text-decoration: none;
+}

@@ -4,18 +4,17 @@
   padding: 0;
   margin: 0;
   font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
 }
 
-:root {
-  --rectPri: #71ccff;
-  --greyText: #474747;
-  --lightGrey: #f6f6f6;
-  --slectedOrange: #ec6e4c;
-  --hoverOrange: #e49781;
+body {
+  background: var(--backgroundPri);
+  transition: all 0.2s ease-out;
 }
 
 .App {
   display: flex;
+  flex-direction: column;
   min-height: 100vh;
 }
 
@@ -26,10 +25,10 @@
   height: 30vw;
   max-width: 1100px;
   max-height: 700px;
-  min-height: 550px;
+  min-height: 600px;
   border-radius: 25px;
   padding: 20px 10px;
-  background: var(--rectPri);
+  background: linear-gradient(0.5turn, var(--rectPri), var(--rectSec) );
   color: #fff;
   box-shadow: 0 10px 20px #00000075;
 }

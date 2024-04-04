@@ -1,0 +1,16 @@
+.header {
+  min-width: 700px;
+  padding: 20px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--header);
+  box-shadow: 0 0 5px grey;
+  transition: all 0.2s ease-out;
+}
+
+.header h2 a {
+  text-decoration: none;
+  color: #414849;
+}

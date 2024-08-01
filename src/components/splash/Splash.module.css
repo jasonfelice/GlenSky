@@ -48,6 +48,7 @@
 .inputWrapper p {
   border-right: 1px solid black;
   width: 100%;
+  max-width: 211px;
   white-space: nowrap;
   user-select: none;
   overflow: hidden;
